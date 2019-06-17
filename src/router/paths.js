@@ -29,6 +29,11 @@ export default [
     view: 'login/login'
   },
   {
+    path: '/leave1',
+    name: '请假',
+    view: 'login/login'
+  },
+  {
     path: 'registry',
     name: 'registry',
     view: 'login/registry'

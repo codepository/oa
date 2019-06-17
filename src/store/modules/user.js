@@ -116,11 +116,12 @@ export default {
           password
         }).then(res => {
           const data = res.data
+          console.log(data)
           if (res.data.ok) {
             commit('setToken', data.message)
             resolve()
           } else {
-            alert(data.message)
+            this.$Message.info(data.message)
           }
         }).catch(err => {
           reject(err)

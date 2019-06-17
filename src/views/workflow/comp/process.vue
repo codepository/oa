@@ -52,7 +52,10 @@ export default {
   }),
   methods: {
     click (title) {
-      alert(title + ' 暂不可用')
+      this.$Message.error('router name 要等于【' + title + '】')
+      this.$router.push({
+        name: title
+      })
     }
   }
 }
