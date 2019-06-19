@@ -16,6 +16,32 @@ export default [
     name: 'workflow',
     view: 'workflow/workflow'
   },
+  // ----------------- 通讯录 ------------------------
+  {
+    path: '/addressbook',
+    name: '通讯录',
+    view: 'AddressBook/AddressBook'
+  },
+  {
+    path: '/organization',
+    name: '组织架构',
+    view: 'AddressBook/comp/Organization'
+  },
+  {
+    path: '/role',
+    name: '角色管理',
+    view: 'AddressBook/comp/Role'
+  },
+  {
+    path: '/addroletree',
+    name: '添加角色',
+    view: 'AddressBook/comp/role/AddRoleTree'
+  },
+  {
+    path: '/departmentset',
+    name: '部门设置',
+    view: 'AddressBook/comp/organization/DepartmentSet'
+  },
   // ---------------- 考勤系统-----------------------
   {
     path: '/attendance',
@@ -26,11 +52,6 @@ export default [
   {
     path: '/login',
     name: 'login',
-    view: 'login/login'
-  },
-  {
-    path: '/leave1',
-    name: '请假',
     view: 'login/login'
   },
   {
@@ -47,6 +68,11 @@ export default [
     path: '/updatePass',
     name: 'updatePass',
     view: 'login/updatePass'
+  },
+  {
+    path: '/addUser',
+    name: '添加员工',
+    view: 'login/addUser'
   },
   {
     path: '/table-list',
@@ -73,5 +99,10 @@ export default [
     path: '/upgrade',
     name: 'Upgrade to PRO',
     view: 'Upgrade'
+  },
+  {
+    path: '/test',
+    name: 'test',
+    view: 'test'
   }
 ]

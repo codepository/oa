@@ -2,6 +2,7 @@
   <v-btn
     :loading="loading"
     :color="color"
+    :block="block"
     @click="click"
   >
     <span v-if="!loading"><slot>确 定</slot></span>
@@ -14,6 +15,10 @@ export default {
     color: {
       type: String,
       default: 'secondary'
+    },
+    block: {
+      type: Boolean,
+      default: false
     }
   },
   data: () => ({

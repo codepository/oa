@@ -164,11 +164,11 @@ export default {
   methods: {
     handleSubmit () {
       if (this.form.department.length === 0) {
-        alert('部门不能为空！')
+        this.$Message.error('部门不能为空！')
         return
       }
       if (!this.checkPass()) {
-        alert('密码不一致！！')
+        this.$Message.error('密码不一致！！')
         return
       }
       if (this.$refs.form.validate()) {

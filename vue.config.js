@@ -19,7 +19,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/user': {
-        target: 'http://129.0.97.23:31380'
+        target: 'http://localhost:8000'
       }
     }
   }

@@ -104,6 +104,11 @@ export default {
         text: '审批'
       },
       {
+        to: '/addressbook',
+        icon: 'mdi-account',
+        text: '通讯录'
+      },
+      {
         to: '/attendance',
         icon: 'mdi-account',
         text: '考勤系统'
