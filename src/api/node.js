@@ -40,10 +40,11 @@ export const saveNewNode = (data) => {
     method: 'post'
   })
 }
-export const deleteNodeById = (id) => {
+export const deleteNode = (data) => {
   return axios.request({
-    url: '/user/nodetree/deleteById/' + id,
-    method: 'get'
+    url: '/user/nodetree/delete/',
+    data,
+    method: 'post'
   })
 }
 export const updateNode = (data) => {

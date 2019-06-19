@@ -74,6 +74,13 @@ export default [
     name: '添加员工',
     view: 'login/addUser'
   },
+  // --------------------  error page ----------------
+  {
+    path: '*',
+    name: '404',
+    view: 'error-404'
+  },
+  // ------------------- 模板-------------------------
   {
     path: '/table-list',
     name: 'Table List',

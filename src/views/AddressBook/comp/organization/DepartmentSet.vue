@@ -74,6 +74,7 @@
                   <material-button
                     class="mx-0 font-weight-light"
                     color="default"
+                    @click="deleteNode"
                   >
                     删 除 部 门
                   </material-button>
@@ -94,7 +95,7 @@
   </v-container>
 </template>
 <script>
-import { findUsers, updateNode } from '@/api/node'
+import { findUsers, updateNode, deleteNode } from '@/api/node'
 export default {
   name: 'DepartmentSet',
   data: () => ({
@@ -128,6 +129,11 @@ export default {
     changeCharger () {
       this.form.charger = undefined
       this.findUserWithParentid(this.form.id)
+    },
+    deleteNode () {
+      deleteNode(this.form).then(res => {
+        this.$Message.info(res.data.message)
+      })
     },
     findUserWithParentid (id) {
       var param = {
