@@ -40,21 +40,13 @@
   </v-layout>
 </template>
 <script>
-import store from '@/store'
+// import store from '@/store'
 export default {
   name: 'Operations',
   data () {
     return {
       selected: [2],
       items: [
-        {
-          action: 'mdi-home',
-          title: store.state.user.company,
-          subTitle: '公司',
-          postAction: 'mdi-settings',
-          actionText: '管理',
-          route: 'test'
-        },
         {
           action: 'mdi-account-multiple',
           title: '组织架构',

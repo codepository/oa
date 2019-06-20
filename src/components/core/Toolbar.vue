@@ -1,7 +1,6 @@
 <template>
   <v-toolbar
     id="core-toolbar"
-
     flat
     prominent
     style="background: #eee;"
@@ -17,9 +16,17 @@
           icon
           @click.stop="onClickBtn"
         >
-          <v-icon>mdi-view-list</v-icon>
+          <v-icon large>mdi-view-list</v-icon>
         </v-btn>
-        {{ title }}
+        <v-btn
+          class="default v-btn--simple"
+          dark
+          icon
+          @click.stop="back"
+        >
+          <v-icon large>mdi-arrow-left</v-icon>
+        </v-btn>
+        <!-- {{ title }} -->
       </v-toolbar-title>
     </div>
 
@@ -132,6 +139,9 @@ export default {
     ...mapMutations(['setDrawer', 'toggleDrawer']),
     onClickBtn () {
       this.setDrawer(!this.$store.state.user.drawer)
+    },
+    back () {
+      this.$router.go(-1)
     },
     onClick () {
       //

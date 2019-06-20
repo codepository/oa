@@ -34,9 +34,23 @@ export const hasRoleChildren = (id) => {
   })
 }
 // ************************** role ************************
-export const findUsersFromRoles = (data) => {
+export const findRoles = (data) => {
   return axios.request({
-    url: '/user/role/findUsers',
+    url: '/user/role/findRoles',
+    data,
+    method: 'post'
+  })
+}
+export const saveRole = (data) => {
+  return axios.request({
+    url: '/user/role/save',
+    data,
+    method: 'post'
+  })
+}
+export const deleteRole = (data) => {
+  return axios.request({
+    url: '/user/role/delete',
     data,
     method: 'post'
   })

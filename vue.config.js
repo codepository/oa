@@ -20,6 +20,9 @@ module.exports = {
     proxy: {
       '/user': {
         target: 'http://localhost:8000'
+      },
+      '/workflow': {
+        target: 'http://localhost:8080'
       }
     }
   }

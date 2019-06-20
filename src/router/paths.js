@@ -3,6 +3,7 @@
  * for more information on routes, see the
  * official documentation https://router.vuejs.org/en/
  */
+// 多级path 会报错
 export default [
   {
     path: '/dashboard',
@@ -12,9 +13,19 @@ export default [
   },
   // ----------------- 审批 ------------------------
   {
-    path: '/workflow',
+    path: '/work',
     name: 'workflow',
-    view: 'workflow/workflow'
+    view: 'work/work'
+  },
+  {
+    path: '/workcomplete',
+    name: '我审批的',
+    view: 'work/complete/complete'
+  },
+  {
+    path: '/workcompletepage',
+    name: '流程审批页面',
+    view: 'work/complete/complete-page'
   },
   // ----------------- 通讯录 ------------------------
   {
@@ -36,6 +47,11 @@ export default [
     path: '/addroletree',
     name: '添加角色',
     view: 'AddressBook/comp/role/AddRoleTree'
+  },
+  {
+    path: '/roleadduser',
+    name: '角色添加成员',
+    view: 'AddressBook/comp/role/AddUser'
   },
   {
     path: '/departmentset',
@@ -74,12 +90,6 @@ export default [
     name: '添加员工',
     view: 'login/addUser'
   },
-  // --------------------  error page ----------------
-  {
-    path: '*',
-    name: '404',
-    view: 'error-404'
-  },
   // ------------------- 模板-------------------------
   {
     path: '/table-list',
@@ -110,6 +120,6 @@ export default [
   {
     path: '/test',
     name: 'test',
-    view: 'test'
+    view: 'error-404'
   }
 ]

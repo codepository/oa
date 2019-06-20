@@ -7,11 +7,12 @@
     <v-layout
       wrap>
       <!-- 工具栏 -->
-      <toolbar :currentdepart.sync="currentdepart"/>
+      <!-- <toolbar :currentdepart.sync="currentdepart"/> -->
       <!--组织路由栏-->
       <routebar
         ref="r"
         :selected.sync="departments"/>
+      <!-- <MenuSet :currentdepart.sync="currentdepart"/> -->
       <!-- 组织显示栏 -->
       <showlist
         :departments.sync="departments"
@@ -22,13 +23,14 @@
 <script>
 import routebar from './routebar'
 import showlist from './organization/showlist'
-import toolbar from './organization/toolbar'
+// import MenuSet from './organization/MenuSet'
+// import toolbar from './organization/toolbar'
 export default {
   name: 'Organization',
   components: {
     routebar,
-    showlist,
-    toolbar
+    showlist
+    // toolbar
   },
   data: () => ({
     departments: [],

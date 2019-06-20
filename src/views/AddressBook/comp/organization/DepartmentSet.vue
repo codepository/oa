@@ -128,7 +128,7 @@ export default {
     },
     changeCharger () {
       this.form.charger = undefined
-      this.findUserWithParentid(this.form.id)
+      this.findUserWithParentid(this.form.parentid)
     },
     deleteNode () {
       deleteNode(this.form).then(res => {

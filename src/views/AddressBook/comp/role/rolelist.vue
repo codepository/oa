@@ -67,7 +67,7 @@
       <v-list subheader>
         <v-list-tile
           v-for="item in items"
-          :key="item.title"
+          :key="item.id"
           avatar
         >
           <v-list-tile-action>
@@ -77,7 +77,7 @@
           </v-list-tile-action>
 
           <v-list-tile-content>
-            <v-list-tile-title>{{ item }}</v-list-tile-title>
+            <v-list-tile-title>{{ item.username }}</v-list-tile-title>
           </v-list-tile-content>
           <v-list-tile-action>
             <v-menu
@@ -97,7 +97,7 @@
                   <v-list-tile
                     v-for="route in userroute"
                     :key="route"
-                    @click="set(route)"
+                    @click="set(route, item)"
                   >
                     <v-list-tile-title
                       v-text="route"
@@ -116,7 +116,7 @@
   </v-flex>
 </template>
 <script>
-import { findAllRoletreeAstree, findUsersFromRoles } from '@/api/roletree'
+import { findAllRoletreeAstree, findRoles, deleteRole } from '@/api/roletree'
 export default {
   props: {
     selecteditems: {
@@ -141,7 +141,7 @@ export default {
       noderoute: [
         '删除节点',
         '添加角色',
-        '添加成员'
+        '角色添加成员'
       ],
       userroute: [
         '删除成员'
@@ -223,7 +223,7 @@ export default {
         company: this.company,
         role: role
       }
-      findUsersFromRoles(param).then(res => {
+      findRoles(param).then(res => {
         this.items = res.data
       })
     },
@@ -232,7 +232,36 @@ export default {
         case '添加角色':
           this.addRole(item)
           break
+        case '角色添加成员':
+          this.addUser(item)
+          break
+        case '删除成员':
+          this.deleteUser(item)
+          break
+        default:
+          this.$Message.info('暂无此功能')
       }
+    },
+    deleteUser (item) {
+      deleteRole({ company: this.$store.state.user.company, username: item }).then(res => {
+        this.$Message.info(res.data.message)
+      })
+    },
+    addUser (item) {
+      if (!this.permission()) {
+        this.$Message.error('需要【OA管理员】角色')
+        return
+      }
+      if (item.type !== '角色') {
+        this.$Message.error('只有【角色】才能添加成员')
+        return
+      }
+      this.$router.push({
+        name: '角色添加成员',
+        query: {
+          role: item.title
+        }
+      })
     },
     addRole (item) {
       if (!this.permission()) {

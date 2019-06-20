@@ -12,18 +12,26 @@
           :key="item.title"
           ripple
           avatar
-          @click="selectDepartment(item.title)"
         >
           <v-list-tile-action>
             <v-icon
               large
               color="indigo">mdi-home</v-icon>
           </v-list-tile-action>
-          <v-list-tile-content>
+          <v-list-tile-content
+            @click="selectDepartment(item.title)">
             <v-list-tile-title>{{ item.title }}</v-list-tile-title>
           </v-list-tile-content>
-
+          <v-list-tile-content v-if="item.charger">
+            <v-btn
+              color="success"
+              small><v-icon>mdi-star</v-icon>{{ item.charger }}</v-btn>
+          </v-list-tile-content>
           <v-list-tile-action>
+            <MenuSet :currentdepart="item"/>
+          </v-list-tile-action>
+          <v-list-tile-action
+            @click="selectDepartment(item.title)">
             <v-icon>mdi-arrow-right-thick</v-icon>
           </v-list-tile-action>
         </v-list-tile>
@@ -54,8 +62,12 @@
   </v-flex>
 </template>
 <script>
+import MenuSet from './MenuSet'
 import { findDepartmentWithCompany, findUsers } from '@/api/node'
 export default {
+  components: {
+    MenuSet
+  },
   props: {
     departments: {
       type: Array,

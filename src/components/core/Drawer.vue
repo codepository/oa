@@ -99,7 +99,7 @@ export default {
         text: '首页'
       },
       {
-        to: '/workflow',
+        to: '/work',
         icon: 'mdi-gavel',
         text: '审批'
       },
