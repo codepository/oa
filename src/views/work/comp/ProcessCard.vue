@@ -39,7 +39,11 @@
           />
           <p
             class="category font-weight-thin"
-            v-text="':'+process.department"
+            v-text="'部门:'+process.department"
+          />
+          <p
+            class="category font-weight-thin"
+            v-text="'审批人:'+process.candidate"
           />
         </span>
       </v-card>

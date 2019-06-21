@@ -18,7 +18,7 @@
         <ProcessCard
           :process="p"
           color="green"
-          @click="click(p.id)"
+          @click.stop="get(p)"
         />
       </v-flex>
     </v-layout>
@@ -57,12 +57,11 @@ export default {
     indexChange (val) {
       this.getDatas()
     },
-    click (id) {
-      // console.log(id)
+    get (item) {
       this.$router.push({
         name: '流程审批页面',
         query: {
-          procInstID: id
+          proc: item
         }
       })
     },

@@ -11,7 +11,8 @@
       sm12
       md12
       lg12>
-      <ProcessContent :procid="procInstID"/>
+      <ProcessContent
+        :proc="proc"/>
     </v-flex>
     <!-- 流程进度-->
     <v-flex
@@ -19,7 +20,7 @@
       sm12
       md12
       lg12>
-      <ProcessStepper :procid="procInstID"/>
+      <ProcessStepper :procid="proc.id"/>
     </v-flex>
     <!-- 流程控制-->
     <v-flex
@@ -69,11 +70,10 @@ export default {
     ProcessContent
   },
   data: () => ({
-    procInstID: '',
-    e13: 2
+    proc: ''
   }),
   mounted () {
-    this.procInstID = this.$route.query.procInstID
+    this.proc = this.$route.query.proc
   },
   methods: {
     withdraw () {

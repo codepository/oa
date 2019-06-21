@@ -6,3 +6,9 @@ export const findTask = (data) => {
     method: 'post'
   })
 }
+export const findParticipant = (procInstID) => {
+  return axios.request({
+    url: '/workflow/identitylink/findParticipant?procInstID=' + procInstID,
+    method: 'get'
+  })
+}

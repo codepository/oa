@@ -2,21 +2,21 @@
   <v-stepper
     vertical>
     <v-stepper-step
-      step="1"
-      complete>
-      Name of step 1
+      v-for="(item, index) in identitys"
+      :key="index"
+      complete
+    >
+      {{ item.userid }}
     </v-stepper-step>
+    <v-stepper-content/>
     <v-stepper-step
-      step="2"
-      complete>Name of step 2</v-stepper-step>
-    <v-stepper-step
-      step="3"
-      complete>
-      Name of step 1
+      step="当前">
+      我
     </v-stepper-step>
   </v-stepper>
 </template>
 <script>
+import { findParticipant } from '@/api/workflow'
 export default {
   name: 'ProcessStepper',
   props: {
@@ -25,8 +25,25 @@ export default {
       default: undefined
     }
   },
-  mounted () {
-    console.log(this.procid)
+  data: () => ({
+    identitys: [],
+    procid1: ''
+  }),
+  watch: {
+    'procid' (newval) {
+      this.procid1 = newval
+      this.getDatas()
+    }
+  },
+  methods: {
+    getDatas () {
+      if (!this.procid1) {
+        return
+      }
+      findParticipant(this.procid1).then(res => {
+        this.identitys = res.data
+      })
+    }
   }
 }
 </script>
