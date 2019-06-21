@@ -24,8 +24,6 @@ const messageBox = (type, text) => {
   instance.show = false
   instance.type = type
   instance.text = text
-  // let parent = document.body
-  // parent.appendChild(instance.$el)
   Vue.nextTick(() => {
     instance.show = true
   })
@@ -47,10 +45,5 @@ export default {
   },
   message (type, text) {
     return messageBox(type, text)
-  },
-  destroy () {
-    let instance = getMessageInstance()
-    messageInstance = null
-    instance.destroy('ivu-message')
   }
 }
