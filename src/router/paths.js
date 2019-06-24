@@ -68,5 +68,15 @@ export default [
     path: '/upgrade',
     name: 'Upgrade to PRO',
     view: 'Upgrade'
+  },
+  {
+    path: '/leave',
+    name: '请假',
+    view: 'attendance/leave/leave'
+  },
+  {
+    path: '/apply',
+    name: '我的申请',
+    view: 'attendance/apply/apply'
   }
 ]
