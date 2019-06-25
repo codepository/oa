@@ -101,9 +101,14 @@ export default {
         text: '首页'
       },
       {
-        to: '/workflow',
+        to: '/work',
         icon: 'mdi-gavel',
         text: '审批'
+      },
+      {
+        to: '/addressbook',
+        icon: 'mdi-account',
+        text: '通讯录'
       },
       {
         to: '/attendance',

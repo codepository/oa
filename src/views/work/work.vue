@@ -15,10 +15,10 @@
   </v-container>
 </template>
 <script>
-import Mytask from '@/views/workflow/comp/mytask'
-import Process from '@/views/workflow/comp/process'
+import Mytask from '@/views/work/comp/mytask'
+import Process from '@/views/work/comp/process'
 export default {
-  name: 'Workflow',
+  name: 'Work',
   components: {
     Mytask,
     Process

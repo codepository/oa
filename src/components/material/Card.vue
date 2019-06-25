@@ -103,6 +103,9 @@ export default {
         marginTop: `${this.offset * 2}px`
       }
     }
+  },
+  created () {
+    console.log('新建了card')
   }
 }
 </script>

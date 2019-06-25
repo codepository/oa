@@ -6,7 +6,7 @@ export const login = ({ userName, password }) => {
     method: 'post'
   })
 }
-
+// 获取用户信息
 export const getUserInfo = (token) => {
   return axios.request({
     url: '/user/getUserInfoWithToken',
@@ -36,6 +36,14 @@ export const findPass = (data) => {
 export const updatePass = (data) => {
   return axios.request({
     url: '/user/updatePass',
+    data,
+    method: 'post'
+  })
+}
+// 查询用户名（单个字段）
+export const findUsernames = (data) => {
+  return axios.request({
+    url: '/user/findUsernames',
     data,
     method: 'post'
   })

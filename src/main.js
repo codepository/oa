@@ -16,8 +16,12 @@ import App from './App'
 import i18n from '@/i18n'
 import router from '@/router'
 import store from '@/store'
+// 全局提示框: this.$Message.info('ttt')
 import VueMessage from '@/views/components/message'
+// 全局确认框: this.$Confirm.confirm('hhhel')
+import VueConfirm from '@/views/components/confirm'
 Vue.use(VueMessage)
+Vue.use(VueConfirm)
 // Sync store with router
 sync(store, router)
 

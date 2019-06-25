@@ -85,7 +85,7 @@ export default {
   methods: {
     handleSubmit () {
       if (!this.checkPass()) {
-        alert('密码不一致！！')
+        this.$Message.error('密码不一致！！')
         return
       }
       if (this.$refs.form.validate()) {

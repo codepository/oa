@@ -43,7 +43,7 @@ export default {
       { title: '补卡申请', icon: 'mdi-airplane-takeoff', color: 'warning' },
       { title: '报销', icon: 'mdi-arrow-right-bold-box', color: 'warning' }
       // { title: '请假', icon: 'mdi-gavel', color: 'primary' },
-      // { title: '出差', icon: 'mdi-airplane-takeoff', color: 'primary' }
+      // { title: '出差', icon: 'mdi-airplane-takeoff', color: 'primary' },
       // { title: '外出', icon: 'mdi-arrow-right-bold-box', color: 'primary' },
       // { title: '加班', icon: 'mdi-gavel', color: 'warning' },
       // { title: '补卡申请', icon: 'mdi-airplane-takeoff', color: 'warning' },
@@ -52,11 +52,10 @@ export default {
   }),
   methods: {
     click (title) {
-      if (title === '请假') {
-        this.$router.push('/leave')
-      } else {
-        this.$Message.info(title + ' 暂不可用')
-      }
+      this.$Message.error('router name 要等于【' + title + '】')
+      this.$router.push({
+        name: title
+      })
     }
   }
 }

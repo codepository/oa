@@ -5,7 +5,7 @@
         <router-view />
       </v-fade-transition>
     </div>
-    <core-footer v-if="$route.name !== 'Maps'" />
+    <!-- <core-footer v-if="$route.name !== 'Maps'" /> -->
   </v-content>
 </template>
 
@@ -13,7 +13,7 @@
 export default {
   metaInfo () {
     return {
-      title: 'Vuetify Material Dashboard by CreativeTim'
+      title: '福州日报社'
     }
   }
 }
@@ -21,6 +21,6 @@ export default {
 
 <style>
 #core-view {
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
 </style>

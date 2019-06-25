@@ -6,6 +6,7 @@
       <v-stepper-header>
         <v-stepper-step
           complete
+          step="1"
           class="apply-step"
           color="#1867C0">
           提交<br>
