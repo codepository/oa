@@ -116,7 +116,7 @@ export default {
           password
         }).then(res => {
           const data = res.data
-          console.log(data)
+          // console.log(data)
           if (res.data.ok) {
             commit('setToken', data.message)
             resolve()
