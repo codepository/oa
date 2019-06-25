@@ -107,10 +107,3 @@ export default {
   name: 'Attendance'
 }
 </script>
-
-<style lang="stylus">
-  .application--wrap
-    background-color #ffffff
-  .theme--light.v-sheet
-    background-color #eeeeee
-</style>

@@ -1,5 +1,6 @@
 <template>
   <div
+    id="leave-date-layout"
     class="leave-date">
     <div class="leave-date-wrapper">
       <div class="leave-start-date">
@@ -150,8 +151,6 @@ export default {
     width 100%
     height 2.8rem
     margin-top 1.3rem
-  .v-btn
-    padding 8px 18px
   .primary
     height 5.5rem
   .v-btn.v-btn--outline
@@ -161,19 +160,6 @@ export default {
     padding-top .6rem
     display inline-block
     margin-left 10%
-  .wrap
-    position relative
-    display inline-block
-    width 35%
-    float right
-    bottom 25%
-    margin-right 10%
-  .flex.sm6
-    max-width 100% !important
-  .v-text-field input
-    text-align center !important
-  .layout.row
-    height 1rem
   .under-line
     background-color #EEEEEE
     width 100%
@@ -187,15 +173,34 @@ export default {
     float right
     margin-right 10%
     margin-top -.8rem
-  .v-text-field
-    padding-top 0
-    margin-top 16px
 </style>
 
 <style lang="scss">
   #leave-date {
     .v-btn__content {
       color: #000000;
+    }
+    .v-btn {
+      padding: 0px 18px;
+    }
+  }
+  #leave-date-layout {
+    .wrap {
+      position: relative;
+      display: block;
+      width: 35%;
+      float: right;
+      bottom: 25%;
+      margin-right: 10%;
+    }
+    .flex.sm6 {
+      max-width: 100% !important;
+    }
+    .v-text-field input {
+      text-align: center !important;
+    }
+    .layout.row {
+      height: 1rem;
     }
   }
 </style>

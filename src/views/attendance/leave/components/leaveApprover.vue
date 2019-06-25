@@ -1,11 +1,14 @@
 <template>
   <div
+    id="leave-approver"
     class="leave-approver-wrapper">
-    <div class="leave-approver">
+    <div
+      class="leave-approver">
       <div class="leave-type-lab">审批人</div>
       <div class="leave-type-icon">*</div>
     </div>
-    <div class="leave-approver-content">
+    <div
+      class="leave-approver-content">
       <div class="leave-approver-names">
         <v-chip
           v-for="(name,index) in names"
@@ -20,7 +23,8 @@
           v-model="show"
           scrollable
           max-width="300px">
-          <template v-slot:activator="{ on }">
+          <template
+            v-slot:activator="{ on }">
             <v-btn
               class="leave-approver-add"
               v-on="on"
@@ -158,4 +162,12 @@ export default {
     text-align center
   .leave-approver-content
     margin-left 5.5%
+</style>
+
+<style lang="scss">
+  #leave-approver {
+    .v-btn {
+      padding: 0px 18px;
+    }
+  }
 </style>

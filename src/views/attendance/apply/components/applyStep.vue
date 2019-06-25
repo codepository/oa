@@ -1,5 +1,7 @@
 <template>
-  <div class="apply-step-wrapper">
+  <div
+    id="apply-step"
+    class="apply-step-wrapper">
     <v-stepper
       alt-labels
       value="2">
@@ -52,8 +54,12 @@ export default {
     font-size .7rem
     margin-left .4rem
     color #A5A5A5 !important
-  .v-stepper--alt-labels .v-stepper__step
-    flex-basis 110px
-  .v-stepper, .v-stepper__header
-    box-shadow 0 0px 0px 0px rgba(0,0,0,0), 0 0px 0px 0 rgba(0,0,0,0), 0 0px 0px 0 rgba(0,0,0,0) !important
+</style>
+
+<style lang="scss">
+  #apply-step {
+    .v-stepper, .v-stepper__header {
+      box-shadow: 0 0px 0px 0px rgba(0,0,0,0), 0 0px 0px 0 rgba(0,0,0,0), 0 0px 0px 0 rgba(0,0,0,0) !important;
+    }
+  }
 </style>
