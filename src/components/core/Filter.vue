@@ -137,6 +137,9 @@ export default {
   }),
 
   computed: {
+    image () {
+      return this.$store.state.user.image
+    },
     color () {
       return this.$store.state.user.color
     }
