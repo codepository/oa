@@ -91,7 +91,7 @@ export default {
       })
     },
     agree () {
-      this.$Confirm.confirm('驳回').then(() => {
+      this.$Confirm.confirm('通过').then(() => {
         console.log('ok')
       }).catch(() => {
         console.log('no')
