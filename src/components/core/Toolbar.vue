@@ -126,6 +126,7 @@ export default {
       this.title = val.name
     }
   },
+  
   mounted () {
     this.onResponsiveInverted()
     window.addEventListener('resize', this.onResponsiveInverted)
