@@ -67,13 +67,11 @@
             <v-btn
               color="error"
               block="block"
-              class="drawer-btn"
               @click="logOut"
             >退 出</v-btn>
             <v-btn
               color="info"
               block="block"
-              class="drawer-btn"
               @click="updatePass"
             >修改密码</v-btn>
           </v-list-tile-title>
@@ -217,10 +215,6 @@ export default {
 
     div.v-responsive.v-image > div.v-responsive__content {
       overflow-y: auto;
-    }
-
-    .v-btn__content {
-      color: #ffffff
     }
   }
 </style>

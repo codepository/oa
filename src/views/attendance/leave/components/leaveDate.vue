@@ -1,5 +1,6 @@
 <template>
-  <div class="leave-date">
+  <div
+    class="leave-date">
     <div class="leave-date-wrapper">
       <div class="leave-start-date">
         <div class="leave-type-lab">开始时间</div>
@@ -35,6 +36,7 @@
               />
             </template>
             <v-date-picker
+              id="leave-date"
               v-model="date"
               scrollable
               locale="zh-cn"
@@ -84,6 +86,7 @@
               />
             </template>
             <v-date-picker
+              id="leave-date"
               v-model="date2"
               scrollable
               locale="zh-cn"
@@ -147,8 +150,6 @@ export default {
     width 100%
     height 2.8rem
     margin-top 1.3rem
-  .v-btn__content
-    color #000000
   .v-btn
     padding 8px 18px
   .primary
@@ -189,4 +190,12 @@ export default {
   .v-text-field
     padding-top 0
     margin-top 16px
+</style>
+
+<style lang="scss">
+  #leave-date {
+    .v-btn__content {
+      color: #000000;
+    }
+  }
 </style>
