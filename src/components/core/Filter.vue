@@ -116,8 +116,7 @@
 <script>
 // Utilities
 import {
-  mapMutations,
-  mapState
+  mapMutations
 } from 'vuex'
 
 export default {
@@ -138,16 +137,15 @@ export default {
   }),
 
   computed: {
-    ...mapState('app', ['image', 'color']),
     color () {
-      return this.$store.state.app.color
+      return this.$store.state.user.color
     }
   },
 
   methods: {
-    ...mapMutations('app', ['setImage']),
+    ...mapMutations(['setImage']),
     setColor (color) {
-      this.$store.state.app.color = color
+      this.$store.state.user.color = color
     }
   }
 }
