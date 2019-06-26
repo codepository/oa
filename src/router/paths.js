@@ -90,6 +90,12 @@ export default [
     name: '添加员工',
     view: 'login/addUser'
   },
+  // ------------------流程申请 ------------------------------
+  {
+    path: '/leave',
+    name: '请假',
+    view: 'work/apply/leave'
+  },
   // ------------------- 模板-------------------------
   {
     path: '/table-list',
