@@ -12,3 +12,17 @@ export const findParticipant = (procInstID) => {
     method: 'get'
   })
 }
+export const completeTask = (data) => {
+  return axios.request({
+    url: '/workflow/task/completeByToken',
+    data,
+    method: 'post'
+  })
+}
+export const withdrawTask = (data) => {
+  return axios.request({
+    url: '/workflow/task/withdrawByToken',
+    data,
+    method: 'post'
+  })
+}

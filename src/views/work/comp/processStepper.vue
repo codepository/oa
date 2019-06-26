@@ -4,15 +4,10 @@
     <v-stepper-step
       v-for="(item, index) in identitys"
       :key="index"
-      complete
-    >
-      {{ item.userid }}
+      complete >
+      {{ item.userid }} : {{ item.comment }}
     </v-stepper-step>
-    <v-stepper-content/>
-    <v-stepper-step
-      step="当前">
-      我
-    </v-stepper-step>
+
   </v-stepper>
 </template>
 <script>
@@ -43,6 +38,9 @@ export default {
       findParticipant(this.procid1).then(res => {
         this.identitys = res.data
       })
+    },
+    reload () {
+      this.getDatas()
     }
   }
 }

@@ -8,7 +8,6 @@
     >
       <v-card>
         <v-card-title class="headline">提示框</v-card-title>
-
         <v-card-text>
           {{ text }}
         </v-card-text>
