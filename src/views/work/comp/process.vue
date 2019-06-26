@@ -41,13 +41,13 @@ export default {
       { title: '外出', icon: 'mdi-arrow-right-bold-box', color: 'primary' },
       { title: '加班', icon: 'mdi-gavel', color: 'warning' },
       { title: '补卡申请', icon: 'mdi-airplane-takeoff', color: 'warning' },
-      { title: '报销', icon: 'mdi-arrow-right-bold-box', color: 'warning' },
-      { title: '请假', icon: 'mdi-gavel', color: 'primary' },
-      { title: '出差', icon: 'mdi-airplane-takeoff', color: 'primary' },
-      { title: '外出', icon: 'mdi-arrow-right-bold-box', color: 'primary' },
-      { title: '加班', icon: 'mdi-gavel', color: 'warning' },
-      { title: '补卡申请', icon: 'mdi-airplane-takeoff', color: 'warning' },
       { title: '报销', icon: 'mdi-arrow-right-bold-box', color: 'warning' }
+      // { title: '请假', icon: 'mdi-gavel', color: 'primary' },
+      // { title: '出差', icon: 'mdi-airplane-takeoff', color: 'primary' },
+      // { title: '外出', icon: 'mdi-arrow-right-bold-box', color: 'primary' },
+      // { title: '加班', icon: 'mdi-gavel', color: 'warning' },
+      // { title: '补卡申请', icon: 'mdi-airplane-takeoff', color: 'warning' },
+      // { title: '报销', icon: 'mdi-arrow-right-bold-box', color: 'warning' }
     ]
   }),
   methods: {
