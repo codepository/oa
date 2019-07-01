@@ -3,6 +3,7 @@ import {
   getUserInfo
 } from '@/api/user'
 import { setToken, getToken } from '@/libs/util'
+import router from '@/router'
 import { set, toggle } from '@/utils/vuex'
 export default {
   state: {
@@ -77,13 +78,17 @@ export default {
     getUserInfo ({ state, commit }) {
       return new Promise((resolve, reject) => {
         try {
+          // console.log(state.token)
           getUserInfo(state.token).then(res => {
             const data = res.data
-            // console.log(res.data)
             if (!data.userid) {
-              this.$router.push({
+              commit('setToken', '')
+              router.push({
                 name: 'login'
               })
+              // this.$router.push({
+              //   name: 'login'
+              // })
             }
             commit('setUserId', data.userid)
             commit('setDepartment', data.department)
@@ -115,8 +120,9 @@ export default {
           userName,
           password
         }).then(res => {
+          console.log(res)
           const data = res.data
-          // console.log(data)
+          console.log(data)
           if (res.data.ok) {
             commit('setToken', data.message)
             resolve()

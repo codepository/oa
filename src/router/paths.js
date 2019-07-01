@@ -58,6 +58,21 @@ export default [
     name: '部门设置',
     view: 'AddressBook/comp/organization/DepartmentSet'
   },
+  {
+    path: '/addnode',
+    name: '添加子部门',
+    view: 'AddressBook/comp/organization/AddNode'
+  },
+  {
+    path: '/uploaduser',
+    name: '导入员工',
+    view: 'AddressBook/comp/organization/UploadUser'
+  },
+  {
+    path: '/userdepartmentset',
+    name: '用户部门修改',
+    view: 'AddressBook/comp/organization/UserDepartmentSet'
+  },
   // ---------------- 考勤系统-----------------------
   {
     path: '/attendance',
@@ -122,16 +137,6 @@ export default [
     path: '/upgrade',
     name: 'Upgrade to PRO',
     view: 'Upgrade'
-  },
-  {
-    path: '/leave',
-    name: '请假',
-    view: 'attendance/leave/leave'
-  },
-  {
-    path: '/apply',
-    name: '我的申请',
-    view: 'attendance/apply/apply'
   },
   {
     path: '/test',

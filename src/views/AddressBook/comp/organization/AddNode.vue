@@ -13,7 +13,7 @@
       >
         <material-card
           color="green"
-          title="部门修改"
+          title="添加子部门"
           text="填写资料"
         >
           <v-form
@@ -34,7 +34,6 @@
                     label="部门名称"><v-icon slot="prepend">mdi-home</v-icon></v-text-field>
                 </v-flex>
                 <v-flex
-                  v-if="form.charger"
                   xs12
                   sm6
                   md6
@@ -43,47 +42,19 @@
                   <v-text-field
                     v-model="form.charger"
                     :rules="required"
-                    label="部门负责人"
-                    disabled><v-icon slot="prepend">mdi-account</v-icon></v-text-field>
-                </v-flex>
-                <v-flex
-                  v-if="!form.charger"
-                  xs12
-                  sm6
-                  md6
-                  lg6
-                >
-                  <v-autocomplete
-                    v-model="form.charger"
-                    :items="users"
-                    label="部门负责人"
-                  ><v-icon slot="prepend">mdi-account</v-icon></v-autocomplete>
+                    label="部门负责人"><v-icon slot="prepend">mdi-account</v-icon></v-text-field>
                 </v-flex>
                 <v-flex
                   xs12
                   text-xs-center
                 >
                   <material-button
-                    :block="true"
                     class="mx-0 font-weight-light"
                     color="success"
+                    block
                     @click="handleSubmit"
                   >
                     确 定
-                  </material-button>
-                  <material-button
-                    class="mx-0 font-weight-light"
-                    color="default"
-                    @click="deleteNode"
-                  >
-                    删 除 部 门
-                  </material-button>
-                  <material-button
-                    class="mx-0 font-weight-light"
-                    color="primary"
-                    @click="changeCharger"
-                  >
-                    更改主管
                   </material-button>
                 </v-flex>
               </v-layout>
@@ -95,51 +66,41 @@
   </v-container>
 </template>
 <script>
-import { findUsers, updateNode, deleteNode } from '@/api/node'
+import { saveNewNodeReturn } from '@/api/node'
 export default {
-  name: 'DepartmentSet',
+  name: 'AddNode1',
   data: () => ({
     form: {
-      id: '',
-      title: '', // 部门名称
-      charger: '', // 部门负责人
-      type: '部门'
+      title: '',
+      parentid: '',
+      type: '部门',
+      depth: '',
+      company: '',
+      charger: ''
     },
-    users: [],
     required: [
       v => !!v || '不能为空'
     ]
   }),
   mounted () {
-    this.form = this.$route.query.department
+    this.form.parentid = this.$route.query.department.id
+    this.form.depth = this.$route.query.department.depth + 1
+    this.form.company = this.$route.query.department.company
+    this.form.charger = this.$store.state.user.userName
+    // console.log(this.form)
   },
   methods: {
     handleSubmit () {
       if (this.$refs.form.validate()) {
-        updateNode(this.form).then(res => {
+        this.form.title.trim()
+        saveNewNodeReturn(this.form).then(res => {
           if (res.data.ok) {
-            this.$Message.info(res.data.message)
+            this.$Message.info('成功')
           } else {
             this.$Message.error(res.data.message)
           }
         })
       }
-    },
-    changeCharger () {
-      this.form.charger = undefined
-      this.form.type = '部门'
-      this.findUserWithParentid(this.form.id)
-    },
-    deleteNode () {
-      this.form.type = '部门'
-      deleteNode(this.form).then(res => {
-        this.$Message.info(res.data.message)
-      })
-    },
-    findUserWithParentid (id) {
-      findUsers(id).then(res => {
-        this.users = res.data
-      })
     }
   }
 }

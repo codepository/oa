@@ -33,9 +33,9 @@
                 text-xs-center
               >
                 <material-button
+                  :block="true"
                   class="mx-0 font-weight-light"
                   color="success"
-                  block="true"
                   @click="handleSubmit"
                 >
                   确 定

@@ -123,6 +123,12 @@ export default {
       }
     },
     validate () {
+      var start = Date.parse(new Date(this.form.start))
+      var end = Date.parse(new Date(this.form.end))
+      if (end < start) {
+        this.$Message.error('结束时间不能小于开始日期')
+        return
+      }
       if (!this.form.type) {
         this.$Message.error('请假类型不能为空')
         return false

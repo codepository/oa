@@ -159,7 +159,6 @@ export default {
     selected1: {
       handler (newval, oldval) {
         // console.log(newval)
-        this.selected = newval
         if (newval.type === '角色') {
           // 员工更新
           this.findUserWithRole(newval.title)

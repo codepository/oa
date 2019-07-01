@@ -31,7 +31,7 @@
             </v-list-tile>
             <v-divider
               v-if="index + 1 < items.length"
-              :key="index"
+              :key="index + 'd'"
             />
           </template>
         </v-list>
@@ -47,6 +47,13 @@ export default {
     return {
       selected: [2],
       items: [
+        {
+          action: 'mdi-store',
+          title: this.$store.state.user.company,
+          subTitle: '公司',
+          postAction: 'mdi-store',
+          route: '公司'
+        },
         {
           action: 'mdi-account-multiple',
           title: '组织架构',

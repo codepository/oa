@@ -24,6 +24,18 @@
               <v-layout wrap>
                 <v-flex
                   xs12
+                  sm6
+                  md6
+                  lg6
+                >
+                  <v-text-field
+                    v-model="user"
+                    :rules="required"
+                    label="用户"
+                    disabled><v-icon slot="prepend">mdi-account</v-icon></v-text-field>
+                </v-flex>
+                <v-flex
+                  xs12
                   text-xs-center
                 >
                   <material-button
@@ -45,13 +57,23 @@
 </template>
 <script>
 export default {
-  name: 'AddUser',
+  name: 'UserDepartmentSet',
   data: () => ({
-
+    user: '',
+    company: '',
+    form: {
+      //
+    },
+    required: [
+      v => !!v || '不能为空'
+    ]
   }),
+  mounted () {
+    this.user = this.$route.query.user
+  },
   methods: {
-    handleSubmit (params) {
-      this.$Message.info('提交')
+    handleSubmit () {
+      //
     }
   }
 }

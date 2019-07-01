@@ -48,3 +48,11 @@ export const findUsernames = (data) => {
     method: 'post'
   })
 }
+// 导入员工
+export const uploadUser = (data) => {
+  return axios.request({
+    url: '/user/upload/user',
+    data,
+    method: 'post'
+  })
+}

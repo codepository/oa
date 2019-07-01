@@ -27,9 +27,6 @@
               color="success"
               small><v-icon>mdi-star</v-icon>{{ item.charger }}</v-btn>
           </v-list-tile-content>
-          <v-list-tile-action>
-            <MenuSet :currentdepart="item"/>
-          </v-list-tile-action>
           <v-list-tile-action
             @click="selectDepartment(item.title)">
             <v-icon>mdi-arrow-right-thick</v-icon>
@@ -53,8 +50,9 @@
             <v-list-tile-title>{{ item }}</v-list-tile-title>
           </v-list-tile-content>
 
-          <v-list-tile-action>
-            <v-icon :color="item.active ? 'teal' : 'grey'">mdi-account</v-icon>
+          <v-list-tile-action
+            @click="userSet(item)">
+            <v-icon :color="item.active ? 'teal' : 'grey'">mdi-settings</v-icon>
           </v-list-tile-action>
         </v-list-tile>
       </v-list>
@@ -62,12 +60,8 @@
   </v-flex>
 </template>
 <script>
-import MenuSet from './MenuSet'
 import { findDepartmentWithCompany, findUsers } from '@/api/node'
 export default {
-  components: {
-    MenuSet
-  },
   props: {
     departments: {
       type: Array,
@@ -101,9 +95,9 @@ export default {
     },
     currentdepart1: {
       handler (newval, oldval) {
+        // console.log('----------here------------')
         // console.log(newval)
-        this.currentdepart = newval
-        this.$emit('update:currentdepart', this.currentdepart) // 当前选中的部门信息
+        this.$emit('update:currentdepart', newval) // 当前选中的部门信息
       }
     }
   },
@@ -159,12 +153,16 @@ export default {
       })
     },
     findUserWithParentid (id) {
-      var param = {
-        company: this.company,
-        parentid: id
-      }
-      findUsers(param).then(res => {
+      findUsers(id).then(res => {
         this.items = res.data
+      })
+    },
+    userSet (item) {
+      this.$router.push({
+        name: '用户部门修改',
+        query: {
+          user: item
+        }
       })
     }
   }

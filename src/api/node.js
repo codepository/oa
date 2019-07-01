@@ -54,14 +54,13 @@ export const updateNode = (data) => {
     method: 'post'
   })
 }
-export const findUsers = (data) => {
+// *********************** 节点信息nodeinfo，同用户一对一 *************************
+export const findUsers = (id) => {
   return axios.request({
-    url: '/user/nodetree/findUsers',
-    data,
-    method: 'post'
+    url: '/user/nodeinfo/findUsers?parentid=' + id,
+    method: 'get'
   })
 }
-// *********************** 节点信息nodeinfo，同用户一对一 *************************
 export const findNodeinfoByUserid = (id) => {
   return axios.request({
     url: '/user/nodeinfo/findByUserid/' + id,

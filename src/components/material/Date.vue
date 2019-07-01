@@ -20,7 +20,8 @@
       <v-date-picker
         id="datepicker"
         v-model="date1"
-        scrollable>
+        scrollable
+        locale="zh-cn">
         <v-spacer/>
         <v-btn
           flat

@@ -35,7 +35,7 @@
 import ProcessCard from './../comp/ProcessCard'
 import { findTask } from '@/api/workflow'
 export default {
-  name: 'UncompleteTable',
+  name: 'CompleteTable',
   components: {
     ProcessCard
   },

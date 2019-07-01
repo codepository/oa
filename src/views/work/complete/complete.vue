@@ -40,9 +40,7 @@
           <v-tab-item
             :value="'mobile-tabs-5-2'"
           >
-            <v-card flat>
-
-            </v-card>
+            <v-card flat/>
           </v-tab-item>
         </v-tabs-items>
       </v-card>
