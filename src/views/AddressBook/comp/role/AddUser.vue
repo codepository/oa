@@ -24,9 +24,9 @@
               <v-layout wrap>
                 <v-flex
                   xs12
-                  sm6
-                  md6
-                  lg6
+                  sm12
+                  md12
+                  lg12
                 >
                   <UserSelect
                     :value.sync="form.username"/>
@@ -36,9 +36,9 @@
                   text-xs-center
                 >
                   <material-button
+                    :block="true"
                     class="mx-0 font-weight-light"
                     color="success"
-                    block="true"
                     @click="handleSubmit"
                   >
                     确 定

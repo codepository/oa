@@ -33,10 +33,12 @@
       lg12>
       <ProcessStepper
         id="stepper"
-        :procid="proc.id"/>
+        :procid="proc.id"
+        :type="status"/>
     </v-flex>
     <!-- 流程控制-->
     <v-flex
+      v-if="action == 'complete'"
       xs12
       sm12
       md12
@@ -74,10 +76,12 @@ export default {
     Dialogs
   },
   data: () => ({
-    proc: '',
+    proc: {},
     showDialogs: false,
     comment: '同意',
     type: '',
+    status: '', // 两种状态 now 和 history
+    action: '',
     buttons: [
       {
         text: '撤消',
@@ -98,6 +102,8 @@ export default {
   }),
   mounted () {
     this.proc = this.$route.query.proc
+    this.status = this.$route.query.status
+    this.action = this.$route.query.action
   },
   methods: {
     click (text, type) {

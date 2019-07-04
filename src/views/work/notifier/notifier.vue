@@ -16,7 +16,7 @@
           >
             <v-icon
               large
-              color="error">mdi-gavel</v-icon>待我审批的
+              color="green">mdi-alert-box</v-icon>已结束
           </v-tab>
 
           <v-tab
@@ -25,7 +25,7 @@
           >
             <v-icon
               large
-              color="green">mdi-gavel</v-icon>我已审批的
+              color="error">mdi-alarm-check</v-icon>审批中
           </v-tab>
         </v-tabs>
 
@@ -34,14 +34,14 @@
             :value="'mobile-tabs-5-1'"
           >
             <v-card flat>
-              <UncompleteTable/>
+              <NotifierTable status="history"/>
             </v-card>
           </v-tab-item>
           <v-tab-item
             :value="'mobile-tabs-5-2'"
           >
             <v-card flat>
-              <CompleteTable/>
+              <NotifierTable/>
             </v-card>
           </v-tab-item>
         </v-tabs-items>
@@ -50,20 +50,14 @@
   </v-container>
 </template>
 <script>
-import UncompleteTable from './uncomplete-table'
-import CompleteTable from './complete-table'
+import NotifierTable from './notifier-table'
 export default {
-  name: 'WorkflowComplete',
+  name: 'WorkflowNotifier',
   components: {
-    UncompleteTable,
-    CompleteTable
+    NotifierTable
   },
-  data () {
-    return {
-      tabs: null
-    }
-  },
-  methods: {
-  }
+  data: () => ({
+    tabs: null
+  })
 }
 </script>

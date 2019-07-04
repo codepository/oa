@@ -48,10 +48,9 @@ export const saveRole = (data) => {
     method: 'post'
   })
 }
-export const deleteRole = (data) => {
+export const deleteRoleById = (id) => {
   return axios.request({
-    url: '/user/role/delete',
-    data,
-    method: 'post'
+    url: '/user/role/deleteById/' + id,
+    method: 'get'
   })
 }

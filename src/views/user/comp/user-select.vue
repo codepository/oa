@@ -4,7 +4,7 @@
     :search-input.sync="search"
     :loading="isLoading"
     :items="users"
-    label="部门负责人"
+    label="用户姓名"
     @change="change"
   ><v-icon slot="prepend">mdi-account</v-icon></v-autocomplete>
 </template>
@@ -20,6 +20,7 @@ export default {
   },
   data: () => ({
     isLoading: false,
+    user: '',
     users: [],
     search: null,
     required: [

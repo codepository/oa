@@ -16,10 +16,11 @@ import Meta from 'vue-meta'
 import paths from './paths'
 import { getToken } from '@/libs/util'
 import store from '@/store'
-function route (path, view, name) {
+function route (path, view, name, meta) {
   return {
     name: name || view,
     path,
+    meta,
     component: (resovle) => import(
       `@/views/${view}.vue`
     ).then(resovle)
@@ -32,7 +33,7 @@ Vue.use(Router)
 const router = new Router({
   mode: 'history',
   // mode: 'hash',
-  routes: paths.map(path => route(path.path, path.view, path.name)).concat([
+  routes: paths.map(path => route(path.path, path.view, path.name, path.meta)).concat([
     { path: '*', redirect: '/dashboard' }
   ]),
   scrollBehavior (to, from, savedPosition) {

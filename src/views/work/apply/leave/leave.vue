@@ -90,7 +90,7 @@
   </v-container>
 </template>
 <script>
-import LeaveTypeSelect from './../comp/leave-type-select'
+import LeaveTypeSelect from './leave-type-select'
 export default {
   name: 'Leave',
   components: {

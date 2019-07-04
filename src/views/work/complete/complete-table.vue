@@ -18,7 +18,7 @@
         <ProcessCard
           :process="p"
           color="green"
-          @click.stop="get(p)"
+          @click="get(p)"
         />
       </v-flex>
     </v-layout>
@@ -33,7 +33,7 @@
 </template>
 <script>
 import ProcessCard from './../comp/ProcessCard'
-import { findTask } from '@/api/workflow'
+import { findProcHistory } from '@/api/workflow'
 export default {
   name: 'CompleteTable',
   components: {
@@ -54,6 +54,7 @@ export default {
     }
   },
   mounted () {
+    // console.log('mounted')
     this.getDatas()
   },
   methods: {
@@ -64,12 +65,14 @@ export default {
       this.$router.push({
         name: '流程审批页面',
         query: {
-          proc: item
+          proc: item,
+          status: 'history'
         }
       })
     },
     getDatas () {
-      findTask({
+      // console.log('----------find history-------------')
+      findProcHistory({
         pageIndex: this.pageIndex,
         pageSize: this.pageSize
       }).then(res => {

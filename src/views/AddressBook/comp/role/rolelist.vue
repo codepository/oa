@@ -116,7 +116,7 @@
   </v-flex>
 </template>
 <script>
-import { findAllRoletreeAstree, findRoles, deleteRole } from '@/api/roletree'
+import { findAllRoletreeAstree, findRoles, deleteRoleById } from '@/api/roletree'
 export default {
   props: {
     selecteditems: {
@@ -242,7 +242,7 @@ export default {
       }
     },
     deleteUser (item) {
-      deleteRole({ company: this.$store.state.user.company, username: item }).then(res => {
+      deleteRoleById(item.id).then(res => {
         this.$Message.info(res.data.message)
       })
     },
@@ -267,6 +267,7 @@ export default {
         this.$Message.error('需要【OA管理员】角色')
         return
       }
+      // console.log(item)
       if (item.type !== '节点') {
         this.$Message.error('只有【节点】才能添加角色')
         return

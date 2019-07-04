@@ -96,7 +96,7 @@ export default {
             commit('setPost', data.post)
             commit('setEmail', data.email)
             commit('setPhone', data.phone)
-            commit('setAvator', data.avator)
+            commit('setAvator', data.avatar)
             commit('setUserName', data.username)
             commit('setPosition', data.position)
             commit('setRoles', data.roles)

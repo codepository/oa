@@ -32,12 +32,18 @@
   </v-flex>
 </template>
 <script>
-import ProcessCard from './../comp/ProcessCard'
-import { findTask } from '@/api/workflow'
+import ProcessCard from '@/views/work/comp/ProcessCard'
+import { findProcNotify, findProcHistoryNotify } from '@/api/workflow'
 export default {
-  name: 'UncompleteTable',
+  name: 'NotifierTable',
   components: {
     ProcessCard
+  },
+  props: {
+    status: {
+      type: String,
+      default: 'now'
+    }
   },
   data: () => ({
     process: [],
@@ -54,6 +60,7 @@ export default {
     }
   },
   mounted () {
+    // console.log('mounted')
     this.getDatas()
   },
   methods: {
@@ -65,20 +72,35 @@ export default {
         name: '流程审批页面',
         query: {
           proc: item,
-          status: 'now',
-          action: 'complete'
+          status: this.status
         }
       })
     },
     getDatas () {
-      findTask({
-        pageIndex: this.pageIndex,
-        pageSize: this.pageSize
-      }).then(res => {
-        this.process = res.data.rows
-        this.total = res.data.total
-        document.documentElement.scrollTop = 0
-      })
+      // console.log('----------find history-------------')
+      if (this.status === 'now') {
+        findProcNotify({
+          userID: this.$store.state.user.userName,
+          company: this.$store.state.user.company,
+          pageIndex: this.pageIndex,
+          pageSize: this.pageSize
+        }).then(res => {
+          this.process = res.data.rows
+          this.total = res.data.total
+          document.documentElement.scrollTop = 0
+        })
+      } else {
+        findProcHistoryNotify({
+          userID: this.$store.state.user.userName,
+          company: this.$store.state.user.company,
+          pageIndex: this.pageIndex,
+          pageSize: this.pageSize
+        }).then(res => {
+          this.process = res.data.rows
+          this.total = res.data.total
+          document.documentElement.scrollTop = 0
+        })
+      }
     }
   }
 }

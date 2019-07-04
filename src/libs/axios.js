@@ -1,6 +1,7 @@
 import axios from 'axios'
 import store from '@/store'
-import { BASE_URL } from '../../vue.config'
+import { MAINHOST } from './../../vue.config'
+const BASE_URL = process.env.NODE_ENV === 'production' ? MAINHOST : './'
 class HttpRequest {
   constructor (baseUrl = BASE_URL) {
     this.baseUrl = baseUrl

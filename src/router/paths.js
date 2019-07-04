@@ -2,6 +2,14 @@
  * Define all of your application routes here
  * for more information on routes, see the
  * official documentation https://router.vuejs.org/en/
+ *   {
+    path: '/workcomplete',
+    name: '我审批的',
+    view: 'work/complete/complete',
+    meta: {
+      keepAlive: true                // 表示是否缓存，默认不缓存
+    }
+  },
  */
 // 多级path 会报错
 export default [
@@ -20,12 +28,23 @@ export default [
   {
     path: '/workcomplete',
     name: '我审批的',
-    view: 'work/complete/complete'
+    view: 'work/complete/complete',
+    meta: {
+      keepAlive: true
+    }
   },
   {
     path: '/workcompletepage',
     name: '流程审批页面',
     view: 'work/complete/complete-page'
+  },
+  {
+    path: '/worknotifier',
+    name: '抄送我的',
+    view: 'work/notifier/notifier',
+    meta: {
+      keepAlive: true
+    }
   },
   // ----------------- 通讯录 ------------------------
   {
@@ -107,9 +126,17 @@ export default [
   },
   // ------------------流程申请 ------------------------------
   {
+    path: '/apply',
+    name: '我发起的',
+    view: 'work/apply/apply',
+    meta: {
+      keepAlive: true
+    }
+  },
+  {
     path: '/leave',
     name: '请假',
-    view: 'work/apply/leave'
+    view: 'work/apply/leave/leave'
   },
   // ------------------- 模板-------------------------
   {
