@@ -120,9 +120,9 @@ export default {
           userName,
           password
         }).then(res => {
-          console.log(res)
+          // console.log(res)
           const data = res.data
-          console.log(data)
+          // console.log(data)
           if (res.data.ok) {
             commit('setToken', data.message)
             resolve()

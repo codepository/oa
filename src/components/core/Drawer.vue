@@ -46,7 +46,7 @@
         <v-list-tile
           v-for="(link, i) in links"
           :key="i"
-          :to="link.to"
+          :to="link.path"
           :active-class="color"
           avatar
           class="v-list-item"
@@ -94,47 +94,47 @@ export default {
     logo: './img/vuetifylogo.png',
     links: [
       {
-        to: '/dashboard',
+        path: '/dashboard',
         icon: 'mdi-view-dashboard',
         text: '首页'
       },
       {
-        to: '/work',
+        path: '/work',
         icon: 'mdi-gavel',
         text: '审批'
       },
       {
-        to: '/addressbook',
+        path: '/addressbook',
         icon: 'mdi-account',
         text: '通讯录'
       },
       {
-        to: '/attendance',
+        path: '/attendance',
         icon: 'mdi-account',
         text: '考勤系统'
       },
       {
-        to: '/table-list',
+        path: '/table-list',
         icon: 'mdi-clipboard-outline',
         text: 'Table List'
       },
       {
-        to: '/typography',
+        path: '/typography',
         icon: 'mdi-format-font',
         text: 'Typography'
       },
       {
-        to: '/icons',
+        path: '/icons',
         icon: 'mdi-chart-bubble',
         text: 'Icons'
       },
       {
-        to: '/maps',
+        path: '/maps',
         icon: 'mdi-map-marker',
         text: 'Maps'
       },
       {
-        to: '/notifications',
+        path: '/notifications',
         icon: 'mdi-bell',
         text: 'Notifications'
       }

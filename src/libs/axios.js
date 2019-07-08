@@ -1,6 +1,7 @@
 import axios from 'axios'
 import store from '@/store'
-import { MAINHOST } from './../../vue.config'
+const MAINHOST = 'http://218.5.3.84:31380'
+// const MAINHOST = 'http://fzrb.fznews.com.cn'
 const BASE_URL = process.env.NODE_ENV === 'production' ? MAINHOST : './'
 class HttpRequest {
   constructor (baseUrl = BASE_URL) {
@@ -11,7 +12,7 @@ class HttpRequest {
     const config = {
       baseURL: this.baseUrl,
       headers: {
-        //
+        'Access-Control-Allow-Origin': '*'
       }
     }
     return config
