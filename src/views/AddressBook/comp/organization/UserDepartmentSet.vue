@@ -36,6 +36,17 @@
                 </v-flex>
                 <v-flex
                   xs12
+                  sm6
+                  md6
+                  lg6
+                >
+                  <material-cascader
+                    :value.sync="form.department"
+                    :data="departments"
+                    lable="选择部门"/>
+                </v-flex>
+                <v-flex
+                  xs12
                   text-xs-center
                 >
                   <material-button
@@ -56,13 +67,17 @@
   </v-container>
 </template>
 <script>
+import { findDepartmentWithCompany } from '@/api/node'
 export default {
   name: 'UserDepartmentSet',
   data: () => ({
     user: '',
     company: '',
+    departments: [],
     form: {
-      //
+      department: '',
+      user: '',
+      company: ''
     },
     required: [
       v => !!v || '不能为空'
@@ -70,10 +85,16 @@ export default {
   }),
   mounted () {
     this.user = this.$route.query.user
+    this.getDepartments()
   },
   methods: {
     handleSubmit () {
-      //
+      console.log(this.form)
+    },
+    getDepartments () {
+      findDepartmentWithCompany(this.$store.state.user.company).then(res => {
+        this.departments = res.data
+      })
     }
   }
 }

@@ -128,7 +128,7 @@ export default {
     changeCharger () {
       this.form.charger = undefined
       this.form.type = '部门'
-      this.findUserWithParentid(this.form.id)
+      this.findUserWithParentid(this.form.parentid)
     },
     deleteNode () {
       this.form.type = '部门'

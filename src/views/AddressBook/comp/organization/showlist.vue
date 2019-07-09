@@ -158,6 +158,7 @@ export default {
       })
     },
     userSet (item) {
+      console.log(this.currentdepart)
       this.$router.push({
         name: '用户部门修改',
         query: {
