@@ -2,7 +2,6 @@
   <v-select
     v-model="valuecurrent"
     :items="companys"
-    :rules="required"
     filled
     label="公司或单位"
     class="purple-input"/>

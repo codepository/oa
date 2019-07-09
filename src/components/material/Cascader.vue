@@ -1,3 +1,14 @@
+<!--
+  data: [
+    {id: 1, title: '福州日报社', children: []}
+  ]
+  初始化：（根据label值进行初始化）
+    department='福州日报社/日报/日报运营中心'
+   <material-cascader
+                    :value.sync="departmentid"
+                    :label.sync="department"
+                    :data="departments"/>
+-->
 <template>
   <v-layout
     row>
@@ -11,13 +22,13 @@
     >
       <v-text-field
         slot="activator"
-        v-model="value1"
-        :label="label"
-        prepend-icon="mdi-account"
+        v-model="label1"
+        label="点击选择"
+        prepend-icon="mdi-store"
         readonly
       />
       <v-card>
-        <material-route-bar :selected.sync="selected"/>
+        <material-route-bar :selected.sync="selectedLabel"/>
       </v-card>
       <v-card>
         <v-list subheader>
@@ -27,7 +38,7 @@
             ripple
             avatar
           >
-            <v-list-tile-content @click="selectItem(item.title)">
+            <v-list-tile-content @click="selectTitle(item.title)">
               <v-list-tile-title>{{ item.title }}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
@@ -63,14 +74,16 @@ export default {
   data: () => ({
     modal: false,
     value1: '',
+    label1: '',
     items: [],
-    selected: [],
+    selectedLabel: [],
+    selectedValue: [],
     data1: []
   }),
   watch: {
-    selected: {
+    selectedLabel: {
       handler (newval) {
-        this.value1 = newval.join('/')
+        this.label1 = newval.join('/')
         this.items = this.getCurrent(this.data1, newval, 0)
       },
       deep: true
@@ -80,54 +93,83 @@ export default {
         this.initial(val)
       },
       deep: true
-    },
-    value1 (val) {
-      this.$emit('update:value', val)
     }
+    // value1 (val) {
+    //   this.$emit('update:value', val)
+    // },
+    // label1 (val) {
+    //   this.$emit('update:label', val)
+    // }
   },
   mounted () {
   },
   methods: {
     ok () {
       this.modal = false
+      this.setValue()
+      this.$emit('update:label', this.label1)
     },
     initial (data) {
-      console.log('-----------initial------------')
-      console.log(this.value)
+      // console.log('-----------initial------------')
       if (data.length > 0) {
-        console.log(data)
+        // console.log(data)
         this.data1 = data
-        if (this.value) { // 有初始值
-          console.log('---------值初始化------------')
-          this.value1 = this.value
-          var items = this.value1.split('/')
+        if (this.label) { // 有初始值
+          // console.log('---------值初始化------------')
+          this.label1 = this.label
+          var items = this.label1.split('/')
           items.forEach(item => {
-            this.selectItem(item)
+            this.selectTitle(item)
           })
+          this.setValue()
         } else {
           this.items = data
         }
       }
     },
-    selectItem (item) {
+    selectTitle (item) {
       // router 更新
       // console.log(department)
-      this.selected.push(item)
+      this.selectedLabel.push(item)
     },
-    getCurrent (childDeparts, selected, index) {
+    setValue () {
+      this.selectedValue = []
+      this.setValueBySelectedLable(this.data1, this.selectedLabel, 0)
+      // console.log(this.selectedValue)
+      this.value1 = this.selectedValue.join(',')
+      this.$emit('update:value', this.value1)
+    },
+    setValueBySelectedLable (data, selectedLabel, index) {
+      var temp
+      data.some(child => {
+        if (child.title === selectedLabel[index]) {
+          temp = child
+          this.selectedValue.push(child.id)
+          return true
+        }
+      })
+      if (index === (selectedLabel.length - 1)) {
+        return
+      }
+      if (temp.children.length > 0) {
+        index++
+        return this.setValueBySelectedLable(temp.children, selectedLabel, index)
+      }
+    },
+    getCurrent (childDeparts, selectedLabel, index) {
       var destiDepart
       childDeparts.some(child => {
-        if (child.title === selected[index]) {
+        if (child.title === selectedLabel[index]) {
           destiDepart = child
           return true
         }
       })
-      if (index === (selected.length - 1)) {
+      if (index === (selectedLabel.length - 1)) {
         return destiDepart.children
       }
       if (destiDepart.children.length > 0) {
         index++
-        return this.getCurrent(destiDepart.children, selected, index)
+        return this.getCurrent(destiDepart.children, selectedLabel, index)
       } else {
         return []
       }

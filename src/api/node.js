@@ -88,3 +88,10 @@ export const existsNodeinfo = (data) => {
     method: 'post'
   })
 }
+export const updateDepartment = (data) => {
+  return axios.request({
+    url: '/user/nodeinfo/updateDepartment',
+    data,
+    method: 'post'
+  })
+}

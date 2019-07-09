@@ -22,12 +22,13 @@
             @click="selectDepartment(item.title)">
             <v-list-tile-title>{{ item.title }}</v-list-tile-title>
           </v-list-tile-content>
-          <v-list-tile-content v-if="item.charger">
-            <v-btn
-              color="success"
-              small><v-icon>mdi-star</v-icon>{{ item.charger }}</v-btn>
+          <v-list-tile-content
+            v-if="item.charger"
+            style="margin:0;padding:0;">
+            <h6 style="background-color: beige;"><v-icon small>mdi-star</v-icon>{{ item.charger }}</h6>
           </v-list-tile-content>
           <v-list-tile-action
+            style="min-width:20px;"
             @click="selectDepartment(item.title)">
             <v-icon>mdi-arrow-right-thick</v-icon>
           </v-list-tile-action>

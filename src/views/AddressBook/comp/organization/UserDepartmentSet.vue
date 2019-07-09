@@ -29,7 +29,7 @@
                   lg6
                 >
                   <v-text-field
-                    v-model="user"
+                    v-model="form.username"
                     :rules="required"
                     label="用户"
                     disabled><v-icon slot="prepend">mdi-account</v-icon></v-text-field>
@@ -41,9 +41,9 @@
                   lg6
                 >
                   <material-cascader
-                    :value.sync="form.department"
-                    :data="departments"
-                    lable="选择部门"/>
+                    :value.sync="form.departmentid"
+                    :label.sync="form.department"
+                    :data="departments"/>
                 </v-flex>
                 <v-flex
                   xs12
@@ -67,16 +67,16 @@
   </v-container>
 </template>
 <script>
-import { findDepartmentWithCompany } from '@/api/node'
+import { findDepartmentWithCompany, updateDepartment } from '@/api/node'
 export default {
   name: 'UserDepartmentSet',
   data: () => ({
-    user: '',
     company: '',
     departments: [],
     form: {
-      department: '',
-      user: '',
+      department: '福州日报社',
+      departmentid: '',
+      username: '',
       company: ''
     },
     required: [
@@ -84,12 +84,20 @@ export default {
     ]
   }),
   mounted () {
-    this.user = this.$route.query.user
+    this.form.username = this.$route.query.user
+    this.form.company = this.$store.state.user.company
     this.getDepartments()
   },
   methods: {
     handleSubmit () {
-      console.log(this.form)
+      // console.log(this.form)
+      if (!this.form.department || !this.form.departmentid) {
+        this.$Message.error('部门 department 和 departmentid 不能为空')
+        return
+      }
+      updateDepartment(this.form).then(res => {
+        this.$Message.info(res.data.message)
+      })
     },
     getDepartments () {
       findDepartmentWithCompany(this.$store.state.user.company).then(res => {

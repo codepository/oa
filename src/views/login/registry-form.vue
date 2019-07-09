@@ -77,10 +77,9 @@
                   md12
                 >
                   <DepartmentCascader
-                    :rules="required"
                     :company.sync="form.company"
-                    :values.sync="form.departmentid"
-                    :labels.sync="form.department"/>
+                    :value.sync="form.departmentid"
+                    :label.sync="form.department"/>
                 </v-flex>
                 <v-flex
                   xs12
