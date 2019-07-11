@@ -8,25 +8,6 @@
     >
       <v-card>
         <v-list two-line>
-          <v-list-tile
-            ripple
-            @click="click('公司信息')">
-            <v-list-tile-action>
-              <v-icon
-                large
-                color="indigo">mdi-store</v-icon>
-            </v-list-tile-action>
-
-            <v-list-tile-content>
-              <v-list-tile-title>{{ $store.state.user.company }}</v-list-tile-title>
-              <v-list-tile-sub-title>公司</v-list-tile-sub-title>
-            </v-list-tile-content>
-
-            <v-list-tile-action>
-              <v-icon>mdi-account</v-icon>
-              <v-list-tile-action-text>{{ node.charger }}</v-list-tile-action-text>
-            </v-list-tile-action>
-          </v-list-tile>
           <template v-for="(item, index) in items">
             <v-list-tile
               :key="index"
@@ -59,34 +40,24 @@
   </v-layout>
 </template>
 <script>
-import { findAllNodeAsTree } from '@/api/node'
+// import store from '@/store'
 export default {
   name: 'Operations',
   data () {
     return {
       selected: [2],
-      node: '',
       items: [
         {
-          action: 'mdi-account-multiple',
-          title: '组织架构',
-          subTitle: '组织架构',
-          postAction: 'mdi-account-multiple',
-          route: '组织架构'
-        },
-        {
-          action: 'mdi-face',
-          title: '角色管理',
-          subTitle: '角色管理',
-          postAction: 'mdi-face',
-          route: '角色管理'
+          action: 'mdi-ambulance',
+          title: '流程管理',
+          subTitle: '流程',
+          postAction: 'mdi-ambulance',
+          route: '流程管理'
         }
       ]
     }
   },
-  mounted () {
-    this.getCompanyNode()
-  },
+
   methods: {
     click (route) {
       this.$router.push({
@@ -94,14 +65,6 @@ export default {
       })
       // let routes = this.$router.resolve({ name: route })
       // window.open(routes.href, '_blank')
-    },
-    getCompanyNode () {
-      findAllNodeAsTree({ title: this.$store.state.user.company }).then(res => {
-        if (res.data) {
-          this.node = res.data[0]
-          console.log(this.node)
-        }
-      })
     }
   }
 }

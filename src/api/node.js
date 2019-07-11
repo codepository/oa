@@ -19,7 +19,7 @@ export const hasNodeChildren = (id) => {
     method: 'get'
   })
 }
-export const findAllPowerAsTree = (data) => {
+export const findAllNodeAsTree = (data) => {
   return axios.request({
     url: '/user/nodetree/findAllAsTree',
     data,

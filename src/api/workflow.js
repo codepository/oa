@@ -1,4 +1,12 @@
 import axios from '@/libs/api.request'
+// 保存流程
+export const saveProdef = (data) => {
+  return axios.request({
+    url: '/workflow/procdef/saveByToken',
+    data,
+    method: 'post'
+  })
+}
 // 查询需要我审批的流程
 export const findTask = (data) => {
   return axios.request({
@@ -42,6 +50,14 @@ export const startByMyself = (data) => {
 export const findProcNotify = (data) => {
   return axios.request({
     url: '/workflow/process/FindProcNotify',
+    data,
+    method: 'post'
+  })
+}
+// 查询所有流程定义
+export const findProcdef = (data) => {
+  return axios.request({
+    url: '/workflow/procdef/findAll',
     data,
     method: 'post'
   })

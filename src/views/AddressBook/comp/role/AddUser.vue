@@ -70,7 +70,7 @@ export default {
     }
   },
   mounted () {
-    this.form.role = this.$route.query.role
+    this.form.role = this.$route.query.role.title
   },
   methods: {
     handleSubmit () {

@@ -58,24 +58,6 @@
             v-text="link.text"
           />
         </v-list-tile>
-        <v-list-tile
-          v-if="this.$store.state.user.token"
-          active-class="primary"
-          class="v-list-item v-list__tile--buy"
-        >
-          <v-list-tile-title class="font-weight-light">
-            <v-btn
-              color="error"
-              block="block"
-              @click="logOut"
-            >退 出</v-btn>
-            <v-btn
-              color="info"
-              block="block"
-              @click="updatePass"
-            >修改密码</v-btn>
-          </v-list-tile-title>
-        </v-list-tile>
       </v-layout>
     </v-img>
   </v-navigation-drawer>
@@ -112,6 +94,11 @@ export default {
         path: '/attendance',
         icon: 'mdi-account',
         text: '考勤系统'
+      },
+      {
+        path: '/console',
+        icon: 'mdi-settings',
+        text: '控制台'
       },
       {
         path: '/table-list',

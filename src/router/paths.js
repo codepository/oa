@@ -1,13 +1,11 @@
 /**
- * Define all of your application routes here
- * for more information on routes, see the
- * official documentation https://router.vuejs.org/en/
  *   {
     path: '/workcomplete',
     name: '我审批的',
     view: 'work/complete/complete',
     meta: {
       keepAlive: true                // 表示是否缓存，默认不缓存
+      access: ['开发人员']            // 表示需要的权限
     }
   },
  */
@@ -65,12 +63,26 @@ export default [
   {
     path: '/addroletree',
     name: '添加角色',
-    view: 'AddressBook/comp/role/AddRoleTree'
+    view: 'AddressBook/comp/role/AddRoleTree',
+    meta: {
+      access: ['OA管理员', '开发人员']
+    }
+  },
+  {
+    path: '/updateroletree',
+    name: '修改角色',
+    view: 'AddressBook/comp/role/UpdateRoleTree',
+    meta: {
+      access: ['OA管理员', '开发人员']
+    }
   },
   {
     path: '/roleadduser',
     name: '角色添加成员',
-    view: 'AddressBook/comp/role/AddUser'
+    view: 'AddressBook/comp/role/AddUser',
+    meta: {
+      access: ['OA管理员', '开发人员']
+    }
   },
   {
     path: '/departmentset',
@@ -98,7 +110,21 @@ export default [
     name: 'Attendance',
     view: 'attendance/attendance'
   },
-  // ---------------- 注册登陆-----------------------
+  // ----------------  控制台 ----------------------
+  {
+    path: '/console',
+    name: '控制台',
+    view: 'console/console'
+  },
+  {
+    path: '/saveprocdef', // 新增流程
+    name: '新增流程',
+    view: 'console/workflow/prodev-save',
+    meta: {
+      access: ['开发人员']
+    }
+  },
+  // ---------------- 注册登陆 用户修改-----------------------
   {
     path: '/login',
     name: 'login',
@@ -124,6 +150,16 @@ export default [
     name: '添加员工',
     view: 'login/addUser'
   },
+  {
+    path: '/userProfile',
+    name: '用户信息',
+    view: 'user/userProfile'
+  },
+  {
+    path: '/companyProfile',
+    name: '公司信息',
+    view: 'AddressBook/comp/companyProfile'
+  },
   // ------------------流程申请 ------------------------------
   {
     path: '/apply',
@@ -137,6 +173,15 @@ export default [
     path: '/leave',
     name: '请假',
     view: 'work/apply/leave/leave'
+  },
+  // --------------------- 控制台 -----------------
+  {
+    path: '/workflowconsole',
+    name: '流程管理',
+    view: 'console/workflow/workflow',
+    meta: {
+      access: ['开发人员']
+    }
   },
   // ------------------- 模板-------------------------
   {

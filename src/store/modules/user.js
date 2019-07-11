@@ -14,16 +14,17 @@ export default {
     userName: '',
     userId: '',
     email: '',
-    avatorImgPath: '',
+    avatar: './../../../public/img/logo.png',
     token: getToken(),
     hasGetInfo: false,
-    roles: [],
+    roles: null,
     phone: '',
-    department: '',
+    department: '', // 所属部门
     company: '',
     post: '',
     position: '',
-    permission: ''
+    permission: '',
+    departments: null// 分管部门
   },
   mutations: {
     setDrawer: set('drawer'),
@@ -35,6 +36,9 @@ export default {
     },
     setDepartment (state, department) {
       state.department = department
+    },
+    setDepartments (state, departments) {
+      state.departments = departments
     },
     setRoles (state, roles) {
       state.roles = roles
@@ -52,8 +56,8 @@ export default {
       state.phone = phone
     },
     // *******************  以上为自定义 ****************
-    setAvator (state, avatorPath) {
-      state.avatorImgPath = avatorPath
+    setAvator (state, avatar) {
+      state.avatar = avatar
     },
     setUserId (state, id) {
       state.userId = id
@@ -102,6 +106,7 @@ export default {
             commit('setRoles', data.roles)
             commit('setPermission', data.permission)
             commit('setHasGetInfo', true)
+            commit('setDepartments', data.departments)
             // 以下为自定义
             resolve(data)
           }).catch(err => {

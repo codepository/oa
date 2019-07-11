@@ -62,14 +62,6 @@ const showThisMenuEle = (item, access) => {
   } else return true
 }
 /**
- * @param {*} access 用户权限数组，如 ['super_admin', 'admin']
- * @param {*} route 路由列表
- */
-const hasAccess = (access, route) => {
-  if (route.meta && route.meta.access) return hasOneOf(access, route.meta.access)
-  else return true
-}
-/**
  * @param {Array} list 通过路由列表得到菜单列表
  * @returns {Array}
  */
@@ -204,20 +196,30 @@ export const getNewTagList = (list, newRoute) => {
  * @param {*} routes 路由列表
  * @description 用户是否可跳转到该页
  */
-export const canTurnTo = (name, access, routes) => {
-  const routePermissionJudge = (list) => {
-    return list.some(item => {
-      if (item.children && item.children.length) {
-        return routePermissionJudge(item.children)
-      } else if (item.name === name) {
-        return hasAccess(access, item)
-      }
-    })
-  }
+// export const canTurnTo = (name, access, routes) => {
+//   const routePermissionJudge = (list) => {
+//     return list.some(item => {
+//       if (item.children && item.children.length) {
+//         return routePermissionJudge(item.children)
+//       } else if (item.name === name) {
+//         return hasAccess(access, item)
+//       }
+//     })
+//   }
 
-  return routePermissionJudge(routes)
+//   return routePermissionJudge(routes)
+// }
+export const canTurnTo = (to, access) => {
+  return hasAccess(to, access)
 }
-
+/**
+ * @param {*} access 用户权限数组，如 ['super_admin', 'admin']
+ * @param {*} route 路由列表
+ */
+const hasAccess = (route, access) => {
+  if (route.meta && route.meta.access) return hasOneOf(access, route.meta.access)
+  else return true
+}
 /**
  * @param {String} url
  * @description 从URL中解析参数
