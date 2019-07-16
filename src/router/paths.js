@@ -124,6 +124,14 @@ export default [
       access: ['开发人员']
     }
   },
+  {
+    path: '/workflowconsole',
+    name: '流程管理',
+    view: 'console/workflow/workflow',
+    meta: {
+      access: ['开发人员']
+    }
+  },
   // ---------------- 注册登陆 用户修改-----------------------
   {
     path: '/login',
@@ -173,15 +181,6 @@ export default [
     path: '/leave',
     name: '请假',
     view: 'work/apply/leave/leave'
-  },
-  // --------------------- 控制台 -----------------
-  {
-    path: '/workflowconsole',
-    name: '流程管理',
-    view: 'console/workflow/workflow',
-    meta: {
-      access: ['开发人员']
-    }
   },
   // ------------------- 模板-------------------------
   {
