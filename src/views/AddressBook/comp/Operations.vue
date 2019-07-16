@@ -9,15 +9,15 @@
       <v-card>
         <v-list two-line>
           <v-list-tile
-            ripple
-            @click="click('公司信息')">
+            ripple>
             <v-list-tile-action>
               <v-icon
                 large
                 color="indigo">mdi-store</v-icon>
             </v-list-tile-action>
 
-            <v-list-tile-content>
+            <v-list-tile-content
+              @click="setCompany">
               <v-list-tile-title>{{ $store.state.user.company }}</v-list-tile-title>
               <v-list-tile-sub-title>公司</v-list-tile-sub-title>
             </v-list-tile-content>
@@ -95,11 +95,28 @@ export default {
       // let routes = this.$router.resolve({ name: route })
       // window.open(routes.href, '_blank')
     },
+    setCompany () {
+      if (this.$store.state.user.roles.length > 0) {
+        var s = this.$store.state.user.roles.some(role => {
+          return role === 'OA管理员'
+        })
+        if (!s) {
+          this.$Message.error('只有【OA管理员】才有权限')
+          return
+        }
+      }
+      this.$router.push({
+        name: '部门设置',
+        query: {
+          department: this.node
+        }
+      })
+    },
     getCompanyNode () {
       findAllNodeAsTree({ title: this.$store.state.user.company }).then(res => {
         if (res.data) {
           this.node = res.data[0]
-          console.log(this.node)
+          // console.log(this.node)
         }
       })
     }

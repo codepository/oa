@@ -45,11 +45,9 @@
         </v-list>
       </v-card>
       <v-btn
-        flat
-        color="primary"
+        color="default"
         @click="modal = false">取消</v-btn>
       <v-btn
-        flat
         color="primary"
         @click="ok">确定</v-btn>
     </v-dialog>
@@ -83,7 +81,6 @@ export default {
   watch: {
     selectedLabel: {
       handler (newval) {
-        this.label1 = newval.join('/')
         this.items = this.getCurrent(this.data1, newval, 0)
       },
       deep: true
@@ -107,6 +104,7 @@ export default {
     ok () {
       this.modal = false
       this.setValue()
+      this.label1 = this.selectedLabel.join('/')
       this.$emit('update:label', this.label1)
     },
     initial (data) {

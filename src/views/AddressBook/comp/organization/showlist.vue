@@ -25,7 +25,7 @@
           <v-list-tile-content
             v-if="item.charger"
             style="margin:0;padding:0;">
-            <h6 style="background-color: beige;"><v-icon small>mdi-star</v-icon>{{ item.charger }}</h6>
+            <h6 style="background-color: beige;"><v-icon small>mdi-star</v-icon>{{ item.charger }}&nbsp;&nbsp;<v-icon small>mdi-settings</v-icon>{{ item.admin }}</h6>
           </v-list-tile-content>
           <v-list-tile-action
             style="min-width:20px;"
@@ -71,13 +71,17 @@ export default {
     currentdepart: {
       type: Object,
       default: null
+    },
+    data: {
+      type: Array,
+      default: null
     }
   },
   data () {
     return {
       parentid: '',
       company: this.$store.state.user.company,
-      data: [],
+      data1: [],
       // 用户
       items: [],
       // 部门
@@ -88,7 +92,7 @@ export default {
   watch: {
     departments: {
       handler (newval, oldval) {
-        this.items2 = this.getCurDepartment(this.data, newval, 0)
+        this.items2 = this.getCurDepartment(this.data1, newval, 0)
         // 员工更新
         this.findUserWithParentid(this.parentid)
       },
@@ -134,23 +138,15 @@ export default {
       }
     },
     updateCurrentDepart (destiDepart) {
-      var department = {
-        id: destiDepart.id,
-        title: destiDepart.title,
-        charger: destiDepart.charger,
-        parentid: destiDepart.parentid,
-        type: destiDepart.type,
-        depth: destiDepart.depth,
-        company: destiDepart.company
-      }
-      this.currentdepart1 = department
+      this.currentdepart1 = destiDepart
     },
     getDepartment () {
       if (this.company.length === 0) return
       findDepartmentWithCompany(this.company).then(res => {
-        this.data = res.data
-        this.items2 = this.data[0].children
-        this.departments.push(this.data[0].title)
+        this.data1 = res.data
+        this.$emit('update:data', this.data1)
+        this.items2 = this.data1[0].children
+        this.departments.push(this.data1[0].title)
       })
     },
     findUserWithParentid (id) {
@@ -159,7 +155,7 @@ export default {
       })
     },
     userSet (item) {
-      console.log(this.currentdepart)
+      // console.log(this.currentdepart)
       this.$router.push({
         name: '用户部门修改',
         query: {

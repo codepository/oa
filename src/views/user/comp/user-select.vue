@@ -4,9 +4,9 @@
     :search-input.sync="search"
     :loading="isLoading"
     :items="users"
-    label="用户姓名"
+    :label="label"
     @change="change"
-  ><v-icon slot="prepend">mdi-account</v-icon></v-autocomplete>
+  ><slot><v-icon slot="prepend">mdi-account</v-icon></slot></v-autocomplete>
 </template>
 <script>
 import { findUsernames } from '@/api/user'
@@ -16,6 +16,10 @@ export default {
     value: {
       type: String,
       default: undefined
+    },
+    label: {
+      type: String,
+      default: '用户姓名'
     }
   },
   data: () => ({

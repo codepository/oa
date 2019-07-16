@@ -7,7 +7,10 @@
     <v-layout
       wrap>
       <!-- 工具栏 -->
-      <Menu :department.sync="currentdepart"/>
+      <Menu
+        :department.sync="currentdepart"
+        :departments="departments"
+        :data="data"/>
       <!-- <toolbar :currentdepart.sync="currentdepart"/> -->
       <!--组织路由栏-->
       <routebar
@@ -17,7 +20,8 @@
       <!-- 组织显示栏 -->
       <showlist
         :departments.sync="departments"
-        :currentdepart.sync="currentdepart"/>
+        :currentdepart.sync="currentdepart"
+        :data.sync="data"/>
     </v-layout>
   </v-container>
 </template>
@@ -35,6 +39,7 @@ export default {
     Menu
   },
   data: () => ({
+    data: [], // 所有部门信息
     departments: [],
     currentdepart: null // 当前选中部门
   }),

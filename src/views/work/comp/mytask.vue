@@ -36,7 +36,7 @@ export default {
   name: 'Mytask',
   data: () => ({
     cards: [
-      { title: '我审批的', icon: 'mdi-gavel', color: 'warning', badge: '6', badgeColor: 'red' },
+      { title: '我审批的', icon: 'mdi-gavel', color: 'warning', badgeColor: 'red' },
       { title: '我发起的', icon: 'mdi-airplane-takeoff', color: 'warning' },
       { title: '抄送我的', icon: 'mdi-arrow-right-bold-box', color: 'warning' }
     ]
