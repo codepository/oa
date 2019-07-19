@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 // cookie保存的天数
 import { forEach, hasOneOf, objEqual } from '@/libs/tools'
-const cookieExpires = 1
+const cookieExpires = 30
 
 export const TOKEN_KEY = 'token'
 
@@ -42,7 +42,7 @@ export const getColumnsOfAdvitem = () => {
 }
 // **************************************************************************
 export const setToken = (token) => {
-  Cookies.set(TOKEN_KEY, token, { expires: cookieExpires || 1 })
+  Cookies.set(TOKEN_KEY, token, { expires: cookieExpires || 30 })
 }
 
 export const getToken = () => {

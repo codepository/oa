@@ -6,6 +6,15 @@ export const login = ({ userName, password }) => {
     method: 'post'
   })
 }
+export const logout = (token) => {
+  return axios.request({
+    url: '/user/logout',
+    params: {
+      token
+    },
+    method: 'get'
+  })
+}
 // 获取用户信息
 export const getUserInfo = (token) => {
   return axios.request({
