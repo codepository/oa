@@ -101,29 +101,9 @@ export default {
         text: '控制台'
       },
       {
-        path: '/table-list',
-        icon: 'mdi-clipboard-outline',
-        text: 'Table List'
-      },
-      {
-        path: '/typography',
-        icon: 'mdi-format-font',
-        text: 'Typography'
-      },
-      {
         path: '/icons',
         icon: 'mdi-chart-bubble',
         text: 'Icons'
-      },
-      {
-        path: '/maps',
-        icon: 'mdi-map-marker',
-        text: 'Maps'
-      },
-      {
-        path: '/notifications',
-        icon: 'mdi-bell',
-        text: 'Notifications'
       }
     ],
     responsive: false

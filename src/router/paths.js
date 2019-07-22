@@ -26,10 +26,7 @@ export default [
   {
     path: '/workcomplete',
     name: '我审批的',
-    view: 'work/complete/complete',
-    meta: {
-      keepAlive: true
-    }
+    view: 'work/complete/complete'
   },
   {
     path: '/workcompletepage',

@@ -23,7 +23,7 @@
         <span v-else>
           <h4
             class="title font-weight-light mb-2"
-            v-text="process.startUserId + '-' + process.procDefName"
+            v-text="process.startUserName + '-' + process.procDefName"
           />
           <p
             class="category font-weight-thin"
@@ -35,7 +35,7 @@
           />
           <p
             class="category font-weight-thin"
-            v-text="'申请人:'+process.startUserId"
+            v-text="'申请人:'+process.startUserName"
           />
           <p
             class="category font-weight-thin"

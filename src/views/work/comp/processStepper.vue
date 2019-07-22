@@ -7,7 +7,7 @@
       :key="index"
       :step="index"
       complete >
-      {{ item.userid }} : {{ item.comment }}
+      {{ item.username }} : {{ item.comment }}
     </v-stepper-step>
 
   </v-stepper>
