@@ -86,6 +86,11 @@ export default {
         text: '审批'
       },
       {
+        path: '/workdiary',
+        icon: 'mdi-account-card-details',
+        text: '工作日志'
+      },
+      {
         path: '/addressbook',
         icon: 'mdi-account',
         text: '通讯录'

@@ -41,6 +41,17 @@ export default [
       keepAlive: true
     }
   },
+  // ------------------工作日志---------------------
+  {
+    path: '/workdiary',
+    name: '工作日志',
+    view: 'diary/diary'
+  },
+  {
+    path: '/workdiaryupdate',
+    name: '更新工作日志',
+    view: 'diary/diary-update'
+  },
   // ----------------- 通讯录 ------------------------
   {
     path: '/addressbook',

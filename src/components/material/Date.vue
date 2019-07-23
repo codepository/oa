@@ -14,7 +14,7 @@
         slot="activator"
         v-model="date1"
         :label="label"
-        prepend-icon="mdi-account"
+        prepend-icon="mdi-alarm"
         readonly
       />
       <v-date-picker

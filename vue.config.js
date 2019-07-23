@@ -24,6 +24,9 @@ module.exports = {
       '/workflow': {
         target: 'http://localhost:8080'
         // target: 'http://218.5.3.84:31380'
+      },
+      '/api/v1/workdiary': {
+        target: 'http://localhost:8080'
       }
     }
   }

@@ -2,7 +2,7 @@ import axios from '@/libs/api.request'
 // 保存流程
 export const saveProdef = (data) => {
   return axios.request({
-    url: '/workflow/procdef/saveByToken',
+    url: '/api/v1/workflow/procdef/saveByToken',
     data,
     method: 'post'
   })
@@ -10,7 +10,7 @@ export const saveProdef = (data) => {
 // 查询需要我审批的流程
 export const findTask = (data) => {
   return axios.request({
-    url: '/workflow/process/findTaskByToken',
+    url: '/api/v1/workflow/process/findTaskByToken',
     data,
     method: 'post'
   })
@@ -18,14 +18,14 @@ export const findTask = (data) => {
 // 查询当前流程参与审批的所有人
 export const findParticipant = (procInstID) => {
   return axios.request({
-    url: '/workflow/identitylink/findParticipant?procInstID=' + procInstID,
+    url: '/api/v1/workflow/identitylink/findParticipant?procInstID=' + procInstID,
     method: 'get'
   })
 }
 // 审批
 export const completeTask = (data) => {
   return axios.request({
-    url: '/workflow/task/completeByToken',
+    url: '/api/v1/workflow/task/completeByToken',
     data,
     method: 'post'
   })
@@ -33,7 +33,7 @@ export const completeTask = (data) => {
 // 撤回
 export const withdrawTask = (data) => {
   return axios.request({
-    url: '/workflow/task/withdrawByToken',
+    url: '/api/v1/workflow/task/withdrawByToken',
     data,
     method: 'post'
   })
@@ -41,7 +41,7 @@ export const withdrawTask = (data) => {
 // 查询我发起的流程
 export const startByMyself = (data) => {
   return axios.request({
-    url: '/workflow/process/startByMyself',
+    url: '/api/v1/workflow/process/startByMyself',
     data,
     method: 'post'
   })
@@ -49,7 +49,7 @@ export const startByMyself = (data) => {
 // 查询抄送我的流程
 export const findProcNotify = (data) => {
   return axios.request({
-    url: '/workflow/process/FindProcNotify',
+    url: '/api/v1/workflow/process/FindProcNotify',
     data,
     method: 'post'
   })
@@ -57,7 +57,7 @@ export const findProcNotify = (data) => {
 // 查询所有流程定义
 export const findProcdef = (data) => {
   return axios.request({
-    url: '/workflow/procdef/findAll',
+    url: '/api/v1/workflow/procdef/findAll',
     data,
     method: 'post'
   })
@@ -66,7 +66,7 @@ export const findProcdef = (data) => {
 // 查询我审批过的流程
 export const findProcHistory = (data) => {
   return axios.request({
-    url: '/workflow/procHistory/findTaskByToken',
+    url: '/api/v1/workflow/procHistory/findTaskByToken',
     data,
     method: 'post'
   })
@@ -74,14 +74,14 @@ export const findProcHistory = (data) => {
 // 查询流程参与审批的所有人
 export const findParticipantHistory = (procInstID) => {
   return axios.request({
-    url: '/workflow/identitylinkHistory/findParticipant?procInstID=' + procInstID,
+    url: '/api/v1/workflow/identitylinkHistory/findParticipant?procInstID=' + procInstID,
     method: 'get'
   })
 }
 // 查询我发起的历史流程
 export const startHistoryByMyself = (data) => {
   return axios.request({
-    url: '/workflow/procHistory/startByMyself',
+    url: '/api/v1/workflow/procHistory/startByMyself',
     data,
     method: 'post'
   })
@@ -89,7 +89,7 @@ export const startHistoryByMyself = (data) => {
 // 查询抄送我的流程
 export const findProcHistoryNotify = (data) => {
   return axios.request({
-    url: '/workflow/procHistory/FindProcNotify',
+    url: '/api/v1/workflow/procHistory/FindProcNotify',
     data,
     method: 'post'
   })
