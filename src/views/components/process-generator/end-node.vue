@@ -1,0 +1,13 @@
+<template>
+  <v-container
+    fill-height
+    fluid
+    grid-list-xl
+  >
+    <v-layout
+      justify-center
+    >
+      <slot>流程结束</slot>
+    </v-layout>
+  </v-container>
+</template>

@@ -60,7 +60,6 @@ export default {
     }
   }),
   mounted () {
-    console.log(this.$route.query.item)
     this.form = this.$route.query.item
   },
   methods: {

@@ -7,6 +7,14 @@ export const saveProdef = (data) => {
     method: 'post'
   })
 }
+// 启动流程
+export const startProcInst = (data) => {
+  return axios.request({
+    url: '/api/v1/workflow/process/startByToken',
+    data,
+    method: 'post'
+  })
+}
 // 查询需要我审批的流程
 export const findTask = (data) => {
   return axios.request({

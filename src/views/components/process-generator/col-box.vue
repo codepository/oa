@@ -1,0 +1,11 @@
+<template>
+  <v-container
+    fill-height
+    style="background:green;margin:0;">
+    <v-layout
+      column
+      fill-height
+      align-content-center
+      style="margin:0;background:yellow;"><slot>col-box</slot></v-layout>
+  </v-container>
+</template>

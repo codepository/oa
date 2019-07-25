@@ -21,7 +21,7 @@
         xs12>
         <div
           class="text-xs-center body-2 text-uppercase sidebar-filter"
-          @click="set(item)">{{ item.route }}</div>
+          @click="set(item)">{{ item.text }}</div>
         <v-divider class="mt-3"/>
       </v-flex>
     </FloatMenu>
@@ -38,7 +38,8 @@ export default {
   },
   data: () => ({
     routes: [
-      { route: '新增流程' }
+      { text: '通过JSON添加流程', route: '新增流程' },
+      { text: '动态添加流程', route: '动态新增流程' }
     ]
   }),
   methods: {

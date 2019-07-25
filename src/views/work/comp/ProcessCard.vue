@@ -124,9 +124,6 @@ export default {
       }
     }
   },
-  created () {
-    console.log('新建了card')
-  },
   methods: {
     click () {
       // console.log('click')

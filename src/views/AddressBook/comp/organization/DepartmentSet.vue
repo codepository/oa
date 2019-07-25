@@ -165,6 +165,8 @@ export default {
   methods: {
     handleSubmit () {
       if (this.$refs.form.validate()) {
+        console.log(this.form)
+        this.form.children = null
         updateNode(this.form).then(res => {
           if (res.data.ok) {
             this.$Message.info(res.data.message)
@@ -175,6 +177,7 @@ export default {
       }
     },
     changeCharger () {
+      this.findUserWithParentid(this.form.parentid)
       this.form.charger = undefined
     },
     changeAdmin () {

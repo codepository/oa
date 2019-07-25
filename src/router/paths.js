@@ -127,7 +127,15 @@ export default [
   {
     path: '/saveprocdef', // 新增流程
     name: '新增流程',
-    view: 'console/workflow/prodev-save',
+    view: 'console/workflow/prodef-save',
+    meta: {
+      access: ['开发人员']
+    }
+  },
+  {
+    path: '/saveprocdefactive', // 动态新增流程
+    name: '动态新增流程',
+    view: 'console/workflow/prodef-active-add',
     meta: {
       access: ['开发人员']
     }

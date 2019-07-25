@@ -91,6 +91,7 @@
 </template>
 <script>
 import LeaveTypeSelect from './leave-type-select'
+import { startProcInst } from '@/api/workflow'
 export default {
   name: 'Leave',
   components: {
@@ -118,9 +119,13 @@ export default {
   methods: {
     handleSubmit () {
       this.form.day = this.day
-      if (this.validate()) {
-        console.log(this.form)
-      }
+      startProcInst({
+        procName: '请假1'
+      }).then(res => {
+        if (res.data.ok) {
+          this.$Message.info('成功')
+        }
+      })
     },
     validate () {
       var start = Date.parse(new Date(this.form.start))
