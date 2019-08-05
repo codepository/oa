@@ -1,8 +1,14 @@
 <template>
   <v-layout
-    style="background-color:blue;overflow: hidden;"
+    style="border: 1px solid;overflow: hidden;"
     column>
-    <AddBranchBtn/>
+    <v-icon
+      color="purple"
+      dark
+      style="margin-left: 90%;"
+      @click="delNode">mdi-backspace</v-icon>
+    <AddBranchBtn
+      @addCondition="addCondition"/>
     <v-layout>
       <slot>branch-box</slot>
     </v-layout>
@@ -11,8 +17,17 @@
 <script>
 import AddBranchBtn from './add-branch-btn'
 export default {
+  name: 'BranchBox',
   components: {
     AddBranchBtn
+  },
+  methods: {
+    addCondition () {
+      this.$emit('addCondition')
+    },
+    delNode () {
+      this.$emit('delNode')
+    }
   }
 }
 </script>

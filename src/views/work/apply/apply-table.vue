@@ -80,7 +80,7 @@ export default {
       // console.log('----------find history-------------')
       if (this.status === 'now') {
         startByMyself({
-          userID: this.$store.state.user.userName,
+          userID: '' + this.$store.state.user.userId,
           company: this.$store.state.user.company,
           pageIndex: this.pageIndex,
           pageSize: this.pageSize
@@ -91,7 +91,7 @@ export default {
         })
       } else {
         startHistoryByMyself({
-          userID: this.$store.state.user.userName,
+          userID: '' + this.$store.state.user.userId,
           company: this.$store.state.user.company,
           pageIndex: this.pageIndex,
           pageSize: this.pageSize

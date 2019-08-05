@@ -120,7 +120,10 @@ export default {
     handleSubmit () {
       this.form.day = this.day
       startProcInst({
-        procName: '请假1'
+        procName: '请假',
+        var: {
+          days: '2'
+        }
       }).then(res => {
         if (res.data.ok) {
           this.$Message.info('成功')
