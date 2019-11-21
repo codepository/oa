@@ -17,13 +17,11 @@ module.exports = {
   devServer: {
     proxy: {
       '/user': {
-        target: 'http://129.0.97.23:31380'
         // target: 'http://localhost:8000'
-        // target: 'http://129.0.97.23:31380',
+
       },
       '/workflow': {
         // target: 'http://localhost:8080'
-        target: 'http://218.5.3.84:31380'
       },
       '/api/v1/workdiary': {
         target: 'http://localhost:8080'
